@@ -1,0 +1,239 @@
+@charset "utf-8";
+/* ===================================================================
+CSS information
+
+ File Name  : commom.css
+
+fonts
+ 10px = 77%     11px = 85%     12px = 93%     13px = 100%
+ 14px = 108%    15px = 116%    16px = 123.1%  17px = 131%
+ 18px = 138.5%  19px = 146.5%  20px = 153.9%  21px = 161.6%
+ 22px = 167%    23px = 174%    24px = 182%    25px = 189%
+ 26px = 197%
+=================================================================== */
+
+/* スクロールバーの有無によるズレ対策 */
+html {
+	overflow-y: scroll;
+}
+
+body {
+	font-family:'メイリオ',Meiryo,'ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro','Verdana','ＭＳ Ｐゴシック',sans-serif;
+	color: #333;
+	letter-spacing: 1px;
+	line-height: 1.4;
+}
+input,select,option,textarea{
+	font-family:'メイリオ',Meiryo,'ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro','Verdana','ＭＳ Ｐゴシック',sans-serif;
+	color: #333;
+	letter-spacing: 1px;
+}
+
+
+/*******************************************************
+	リンク
+********************************************************/
+a {
+	color: #36c;
+	text-decoration: underline;
+}
+a:link {
+	color: #36c;
+}
+
+a:visited {
+	color: #39f;
+}
+
+a:hover {
+	color: #f90;
+	text-decoration: underline;
+}
+
+a:active {}
+
+*{
+    -webkit-transition: all .2s ease-in-out;
+       -moz-transition: all .2s ease-in-out;
+        -ms-transition: all .2s ease-in-out;
+         -o-transition: all .2s ease-in-out;
+            transition: all .2s ease-in-out;
+}
+a img:hover{
+	filter: alpha(opacity=70);
+	opacity:0.70;
+}
+/*******************************************************
+	テキスト選択色（対応ブラウザのみ）
+********************************************************/
+::-moz-selection{ /* firefox */
+	background-color: #444;
+	color: #fff;
+}
+::selection { /* css3 */
+	background-color: #444;
+	color: #fff;
+}
+
+/*******************************************************
+	ヘッダー部分
+********************************************************/
+#wrap{
+	padding: 50px 0 0;
+/* 	min-width: 960px; */
+}
+#header{
+	padding: 5px 2% 2px;
+	background-color: #000;
+	opacity: 0.75;
+
+	width: 96%;
+	min-width: 500px;
+	min-height: 30px;
+	position: fixed;
+	top: 0;
+	z-index: 100;
+}
+#header h1{
+	padding: 5px 0 0;
+	float: left;
+}
+h1 a{
+	font-weight: bold;
+	color: #fff!important;
+	text-decoration: none;
+}
+/*******************************************************
+	グローバルナビゲーション
+********************************************************/
+#gNavi{
+	padding: 2px 0 0;
+	float: right;
+
+	overflow: hidden;
+	_zoom: 1;
+}
+#gNavi li{
+	padding: 0 0 0 5px;
+	float: left;
+}
+#gNavi li a{
+	padding: 2px 20px 3px;
+	display: block;
+	color: #fff;
+	text-align: center;
+	text-decoration: none;
+}
+#gNavi li a:hover{
+	background-color: #333;
+	color: #fff;
+}
+
+/*******************************************************
+	パンくず
+********************************************************/
+#topicPath{
+	margin: 0 0 0;
+	padding: 5px;
+	border-bottom: 1px dashed #999;
+	line-height: 1.2;
+	font-size: 11px;
+}
+#topicPath li{
+	display: inline;
+}
+#topicPath li a
+,#topicPath li.gt{
+	padding-right: 14px;
+	background: url("../images/common/gt.gif") no-repeat right center;
+}
+/*******************************************************
+	コンテンツ部
+********************************************************/
+#main > h2{
+	font-weight: bold;
+}
+
+#contentsList{
+	padding: 5px;
+	overflow: hidden;
+	_zoom: 1;
+}
+#contentsList dl{
+	margin: 20px 10px 0;
+	padding: 10px 10px 15px;
+	border: 1px solid #ccc;
+	float: left;
+	width: 200px;
+	box-shadow: 0 0 10px #ccc;
+}
+
+@media screen all and (max-width: 320px){
+	#contentsList dl{width: 300px;}
+}
+
+
+
+#contentsList dl dt{
+	padding: 5px;
+	background-color: #e0e0e0;
+	font-weight: bold;
+	text-shadow: 1px 1px 1px #fff;
+}
+#contentsList dl dd{
+	margin: 1em 0 0;
+}
+#contentsList dl dd p{font-size: 11px;}
+#contentsList dl dd ul{
+	padding: 1em 0 0 2em;
+	list-style: disc;
+}
+#contentsList dl dd ul li{
+white-space: pre-line;      /* CSS 3.0 */
+white-space: -pre-wrap;     /* Opera 4-6 */
+white-space: -o-pre-wrap;   /* Opera 7 */
+white-space: -moz-pre-wrap; /* Mozilla */
+word-wrap: break-word;      /* IE */
+}
+
+.section{
+	margin: 30px 0 80px;
+}
+.section h3{
+	margin: 0 0 14px;
+	padding: 5px 5px 2px;
+	border-left: 5px solid #333;
+	background-color: #eee;
+	font-weight: bold;
+}
+
+
+/*******************************************************
+	フッター部分
+********************************************************/
+#footer{
+	padding: 10px 20px;
+	border-top: 1px dashed #333;
+	background-color: #fff;
+}
+#pageTop{
+	position: fixed;
+	bottom: 10px;
+	right: 10px;
+}
+#pageTop a{
+	background-color: #333333;
+	border-radius: 5px 5px 5px 5px;
+	color: #FFFFFF;
+	display: block;
+	opacity: 0.7;
+	padding: 3px 10px;
+	text-decoration: none;
+}
+
+#copyRight{}
+#loading{
+	position: fixed;
+	top: 50px;
+	left: 50%;
+}

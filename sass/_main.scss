@@ -1,0 +1,162 @@
+@charset "utf-8";
+// ===================================================================
+// メイン - このファイルにメインコンテンツ部分のスタイルをガツガツ書いていく。
+// ===================================================================
+
+.imgOp img:hover {
+	@extend .opacity;
+}
+
+
+/*----------------------------------------------------
+	element style
+----------------------------------------------------*/
+body {
+	border-top: 4px solid $sub_color;
+	box-shadow: inset 0 3px 3px rgba(0,0,0,.2);
+	background: url(#{$img_path}common/mainBg.png);
+	color: $font_color;
+	font-family: $base_font;
+	letter-spacing: 1px;
+}
+
+input,select,option,textarea{
+	font-family: $base_font;
+}
+label{
+	padding: 0 4px;
+	@include border-radius(4px);
+	&.checked{
+		background-color: lighten($sub_color, 40%);
+	}
+}
+
+
+// for IE6
+* html {
+	body,input,select,option,textarea {
+		font-family: $base_font_ie;
+	}
+}
+
+
+// リンク
+a {
+	@each $prefix in $set_prefix {
+		#{$prefix}transition: color .3s linear;
+	}
+	&:link {
+		color: #36c;
+	}
+	&:visited {
+		color: #39f;
+	}
+	&:hover {
+		text-decoration: none;
+		color: #f90;
+	}
+	&:active {
+		color: #f90;
+	}
+}
+
+a[href$=".pdf"],
+a.pdf{
+	padding-right: 24px;
+	background: url("#{$img_path}common/icoPdf.gif") no-repeat right center;
+}
+a[target="_blank"],
+a.blank{
+	padding-right: 20px;
+	background: url("#{$img_path}common/listBlank.gif") no-repeat right center;
+}
+
+// レイアウト関係のスタイル読み込み
+@import "layout";
+
+
+#logo{
+	padding: 25px 0 0;
+	text-align: center;
+}
+
+
+/*----------------------------------------------------
+	#global navigation
+----------------------------------------------------*/
+#gNav{
+	@extend .clearfix;
+	ul{
+		float: left;
+		padding: 0 20px;
+		li{
+			margin: 0 1em 0 0;
+			border: 1px solid #ccc {
+				bottom: none;
+			};
+			@include border-radius(4px 4px 0 0);
+			float: left;
+			a{
+				padding: .5em 1.2em .3em;
+				display: block;
+				@include border-radius(4px 4px 0 0);
+				background-color: #f6f6f6;
+				color: #333;
+				text-decoration: none;
+//				text-shadow: 1px 1px 0 rgba(125,125,125,.2);
+				font-size: fz(15);
+				&:hover{
+					background-color: $main_color + #555;
+					@include background-image(linear-gradient(top, lighten($main_color, 45%),lighten($main_color, 35%)));
+				}
+				&.select{
+					background-color: $main_color;
+					@include background-image(linear-gradient(top, lighten($main_color, 15%), $main_color));
+					color: #fff;
+				}
+			}
+		}
+	}
+}
+#logout{
+	position: absolute;
+	right: 0;
+	top: 20px;
+	font-size: fz(12);
+}
+
+#hellowMsg{
+	position: absolute;
+	right: 20px;
+	top: 170px;
+
+    padding: 0.5em;
+    border: 1px solid #c3e4f7;
+    @include border-radius(4px);
+    background-color: #e5f0f7;
+    line-height: 1.2;
+    font-size: fz(12);
+    span{
+    	padding: 0 .4em;
+    	font-weight: bold;
+    }
+}
+
+/*----------------------------------------------------
+	#contents
+----------------------------------------------------*/
+#contents {}
+
+
+#pageTop{
+	padding: 15px 0 10px;
+	clear: both;
+	text-align: right;
+	font-size: fz(11);
+}
+
+#copyright {
+	padding: 2em 0 0;
+	text-align: center;
+	font-size: fz(11);
+}

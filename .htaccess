@@ -1,0 +1,24 @@
+DirectoryIndex index.html index.php
+
+RewriteEngine On
+RewriteBase /
+RewriteRule ^index\.php$ - [L]
+
+RewriteCond %{REQUEST_FILENAME} !(.*).(jpg|gif|png|php|css|js|pdf|doc|xls|swf|wmv|flv|mp3)$
+RewriteRule . index.php [L]
+
+# File css/js gzip Setting
+RewriteCond %{HTTP:Accept-Encoding} gzip
+RewriteCond %{REQUEST_FILENAME} !\.gz$
+RewriteCond %{REQUEST_FILENAME}\.gz -s
+RewriteRule .+ %{REQUEST_URI}.gz
+<files *.html.gz>
+AddType "text/html;charset=utf-8" .gz
+</files>
+<files *.js.gz>
+AddType "text/javascript;charset=utf-8" .gz
+</files>
+<files *.css.gz>
+AddType "text/css" .gz
+</files>
+AddEncoding x-gzip .gz

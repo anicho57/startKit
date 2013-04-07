@@ -1,5 +1,5 @@
 ﻿#　除外したいパターンのパスを書く
-#.gitignore
+.gitignore
 
 # eclipse
 .settings

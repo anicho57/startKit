@@ -30,13 +30,8 @@ $base_font_ie: "ＭＳ Ｐゴシック", "MS PGothic", Sans-Serif;
 
 
 // ページ全体の横幅
-$base_width: 960px;
+$wrapWidth: 960px;
 
-$main_padding: 20px;
-
-$contents_width: 680px;
-
-$side_width: $base_width - $contents_width - ($main_padding * 2) - 30;
 
 
 // 要素のベースマージン
@@ -44,23 +39,20 @@ $bm: 15px;
 
 
 // ベースカラー
-$base_color: #fff;
+$baceColor: #fff;
 
 // メインカラー（ベースカラー）
-$main_color: #f79523;
-
-// バックカラー
-$back_color: #f7f3ee;
-
-// サブカラー
-$sub_color: #82c018;
+$mainColor: #ee6558;
 
 // アクセントカラー
-$accent_color: #e73562;
+$accentColor: #31b6c5;
+
+// ラインカラー
+$lineColor: #d8d5d1;
 
 
 // ベーステキストカラー
-$font_color: #333;
+$fontColor: #60574b;
 
 
 // 付与するベンダープレフィックス

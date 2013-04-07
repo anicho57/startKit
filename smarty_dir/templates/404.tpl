@@ -1,14 +1,13 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+<!DOCTYPE html>
+<html lang="ja">
 <head>
 
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta http-equiv="content-script-type" content="text/javascript" />
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
 
-	<title>404エラー</title>
+	<title>404 Not Found</title>
 
 {include file="htparts/headRead.tpl"}
-
 
 </head>
 <body id="e404">
@@ -16,20 +15,14 @@
 
 {include file="htparts/header.tpl"}
 
-<div id="main">
 
-<h2>404エラーです。</h2>
+<p>404 Not Found</p>
 
-
-</div>
-<!-- / #main -->
-
-{include file="htparts/sideContents.tpl"}
 
 {include file="htparts/footer.tpl"}
 
 </div>
 <!-- /#wrap -->
-
+{include file="htparts/footRead.tpl"}
 </body>
 </html>

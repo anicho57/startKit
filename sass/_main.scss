@@ -7,28 +7,21 @@
 	@extend .opacity;
 }
 
+@import url(http://fonts.googleapis.com/css?family=Quicksand:300,400);
+@import url(fontello.css);
 
 /*----------------------------------------------------
 	element style
 ----------------------------------------------------*/
 body {
-	border-top: 4px solid $sub_color;
-	box-shadow: inset 0 3px 3px rgba(0,0,0,.2);
-	background: url(#{$img_path}common/mainBg.png);
-	color: $font_color;
+	color: $fontColor;
 	font-family: $base_font;
 	letter-spacing: 1px;
+	line-height: 1.4;
 }
 
 input,select,option,textarea{
 	font-family: $base_font;
-}
-label{
-	padding: 0 4px;
-	@include border-radius(4px);
-	&.checked{
-		background-color: lighten($sub_color, 40%);
-	}
 }
 
 
@@ -41,12 +34,15 @@ label{
 
 
 // リンク
-a {
+a , a *{
 	@each $prefix in $set_prefix {
-		#{$prefix}transition: color .3s linear;
+		#{$prefix}transition: color .3s linear,
+		                      background-color .3s linear,
+		                      border-color .3s linear;
 	}
 	&:link {
 		color: #36c;
+		text-decoration: none;
 	}
 	&:visited {
 		color: #39f;
@@ -59,6 +55,16 @@ a {
 		color: #f90;
 	}
 }
+
+::-moz-selection{  //firefox
+	background-color: lighten($accentColor, 10%);
+	color: #fff;
+}
+::selection { // css3
+	background-color: lighten($accentColor, 10%);
+	color: #fff;
+}
+
 
 a[href$=".pdf"],
 a.pdf{
@@ -75,9 +81,53 @@ a.blank{
 @import "layout";
 
 
-#logo{
-	padding: 25px 0 0;
-	text-align: center;
+//デバイス定義（全端末共通、スマフォ、タブレット、PC）
+$type: all sp tab pc;
+
+//ブレイクポイント毎にデバイスを指定したうえで、_media_query.scssを呼び出す。
+
+/* 全端末共通
+-------------------------------------------------- */
+$type: all;
+@import "media_query";
+
+/* スマフォ
+-------------------------------------------------- */
+@media only screen and (max-width:767px) {
+    $type: sp;
+    @import "media_query"
+}
+
+/* タブレット
+-------------------------------------------------- */
+@media only screen and (min-width:768px) and (max-width:1023px) {
+    $type: tab;
+    @import "media_query"
+}
+
+/* PC
+-------------------------------------------------- */
+@media only screen and (min-width:1024px) {
+    $type: pc;
+    @import "media_query"
+}
+
+
+
+#header{
+	position: relative;
+	#logo{
+		position: absolute;
+		left: $wrapWidth / 2 - 87;
+		top: 30px;
+	}
+	h1{
+		position: absolute;
+		top: 180px;
+		width: $wrapWidth;
+		text-align: center;
+		font-size: fz(12);
+	}
 }
 
 
@@ -85,78 +135,260 @@ a.blank{
 	#global navigation
 ----------------------------------------------------*/
 #gNav{
-	@extend .clearfix;
+	padding: 90px 0 70px;
 	ul{
-		float: left;
-		padding: 0 20px;
+		@extend .clearfix;
 		li{
-			margin: 0 1em 0 0;
-			border: 1px solid #ccc {
-				bottom: none;
-			};
-			@include border-radius(4px 4px 0 0);
+			padding: 0 30px 0 0;
 			float: left;
+			width: 160px;
 			a{
-				padding: .5em 1.2em .3em;
 				display: block;
-				@include border-radius(4px 4px 0 0);
-				background-color: #f6f6f6;
+				padding: .8em 0 .4em;
+				border-bottom: 1px solid #fff;
 				color: #333;
+				text-align: center;
 				text-decoration: none;
-//				text-shadow: 1px 1px 0 rgba(125,125,125,.2);
 				font-size: fz(15);
 				&:hover{
-					background-color: $main_color + #555;
-					@include background-image(linear-gradient(top, lighten($main_color, 45%),lighten($main_color, 35%)));
+					border-bottom: 1px solid $lineColor;
 				}
 				&.select{
-					background-color: $main_color;
-					@include background-image(linear-gradient(top, lighten($main_color, 15%), $main_color));
+					background-color: $mainColor + #555;
 					color: #fff;
+				}
+				span{
+					display: block;
+					color: $mainColor;
+					font-weight: 400;
+					font-size: fz(10);
+					font-family: 'Quicksand';
+				}
+			}
+			&#gn02{
+				padding-right: 260px;
+			}
+			&#gn04{
+				padding-right: 0;
+			}
+		}
+	}
+}
+
+
+#estheMenu{
+	h2{
+		padding: 50px 0 30px;
+		text-align: center;
+		font-weight: 300;
+		font-size: fz(28);
+		font-family: 'Quicksand';
+	}
+	ul{
+		@extend .clearfix;
+		li{
+			float: left;
+			width: 25%;
+			text-align: center;
+			font-size: fz(15);
+			font-family: 'Quicksand';
+			a{
+				text-decoration: none;
+				color: $fontColor;
+				figure{
+					@extend .inlineBlock;
+					position: relative;
+					border-radius: 50%;
+					&:after{
+						@each $prefix in $set_prefix {
+							#{$prefix}transition: padding .3s linear,
+							                      border-color .3s linear,
+							                      top .3s linear,
+							                      left .3s linear;
+						}
+						position: absolute;
+						top: 0;
+						left: 0;
+						display: block;
+						width: 142px;
+						height: 142px;
+						border: 1px solid #fff;
+						border-radius: 50%;
+						content: "";
+					}
+					img{border-radius: 50%;}
+				}
+				$ookisa: 8px;
+				&:hover{
+					figure{
+						&:after{
+							top: -$ookisa;
+							left: -$ookisa;
+							padding: $ookisa;
+							border-color: $mainColor;
+						}
+					}
+					strong{
+						border-bottom: 1px solid $lineColor;
+					}
+				}
+				strong{
+					padding: 20px 0 5px;
+					border-bottom: 1px solid #fff;
+					display: block;
+					font-size: fz(16);
 				}
 			}
 		}
 	}
 }
-#logout{
-	position: absolute;
-	right: 0;
-	top: 20px;
+
+
+#messageArea{
+	margin: 60px 0;
+	padding: 50px 0;
+	border-top: 1px solid $lineColor;
+	border-bottom: 1px solid $lineColor;
+	@extend .clearfix;
 	font-size: fz(12);
+	.msgL{
+		float: left;
+		width: 740px;
+		text-align: center;
+		p{
+			margin: 2em 0 0;
+			line-height: 2;
+			span{
+				padding: 0 30px 0 0;
+				display: block;
+				text-align: right;
+				font-size: fz(16);
+				font-family: 'Quicksand';
+				font-weight: 400;
+			}
+		}
+	}
+	.msgR{
+		float: right;
+		width: 180px;
+		dt{}
+		dd{
+			margin: 10px 0 0;
+			font-size: fz(12);
+		}
+	}
 }
 
-#hellowMsg{
-	position: absolute;
-	right: 20px;
-	top: 170px;
-
-    padding: 0.5em;
-    border: 1px solid #c3e4f7;
-    @include border-radius(4px);
-    background-color: #e5f0f7;
-    line-height: 1.2;
-    font-size: fz(12);
-    span{
-    	padding: 0 .4em;
-    	font-weight: bold;
-    }
-}
 
 /*----------------------------------------------------
 	#contents
 ----------------------------------------------------*/
 #contents {}
 
+$fw: 480px;
+$fImgW: image-width("common/footerImg.jpg");
+#footerL{
+	float: left;
+	width: $fw;
+	@extend .clearfix;
+	dl{
+		float: right;
+		width: $fw - $fImgW - 30;
+		dt{}
+		dd{
+			margin: 10px 0 0;
+			.linkMap{
+				padding: 3px 4px 2px;
+				@extend .inlineBlock;
+				border-radius: 3px;
+				background-color: $accentColor;
+				color: #fff;
+				font-size: fz(11);
+				text-decoration: none;
+				&:hover{
+					background-color: lighten($accentColor, 10%);
+				}
+				i{color: #fff;}
+			}
+			ul{
+				padding: .5em 0 0 1.5em;
+				list-style: circle;
+				li{
+					padding: .2em 0 0;
+					span{
+						@extend .inlineBlock;
+						width: 5.5em;
+					}
+				}
+			}
+		}
+	}
+	div{
+		float: left;
+		width: $fImgW;
+	}
+}
+#footerR{
+	float: right;
+	width: $wrapWidth - $fw - 30;
+	text-align: right;
+	.linkReservation{
+		@extend .inlineBlock;
+		padding: 5px 10px;
+		border-radius: 4px;
+		background-color: $mainColor;
+		color: #fff;
+		text-decoration: none;
+		&:hover{
+			background-color: darken($mainColor, 10%);
+		}
+	}
+}
+
 
 #pageTop{
-	padding: 15px 0 10px;
-	clear: both;
-	text-align: right;
-	font-size: fz(11);
+	position: fixed;
+	bottom: 20px;
+	right: 20px;
+	a{
+		display: block;
+		padding: 3px 0 0;
+		border-radius: 4px;
+		background-color: darken($lineColor, 20%);
+		line-height: 1.2;
+		font-size: 26px;
+		opacity: .8;
+		&:hover{
+			background-color: darken($lineColor, 30%);
+		}
+		i{color: #fff;}
+	}
 }
 
 #copyright {
-	padding: 2em 0 0;
-	text-align: center;
+	padding: 100px 0 0;
+	text-align: right;
 	font-size: fz(11);
+	small{
+		font-family: 'Quicksand';
+		font-weight: 400;
+	}
 }
+
+
+#jyunbityu{
+	position: fixed;
+	top: 100px;
+	left: 50%;
+	color: #fff;
+	opacity: .75;
+	width: 800px;
+	p{
+		padding: 2em;
+		border-radius: 5px;
+		background-color: #333;
+		position: relative;
+		left: -50%;
+	}
+}
+

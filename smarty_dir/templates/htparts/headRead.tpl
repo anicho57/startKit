@@ -1,10 +1,3 @@
+<!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+	<link href="{$level}css/style.css" rel="stylesheet" type="text/css" />
 
-	<meta name="keywords" content="" />
-	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
-
-	<link href="{$level}css/import.css" rel="stylesheet" type="text/css" />
-
-	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-	<script type="text/javascript" src="{$level}js/common.js" charset="utf-8"></script>
-	<script type="text/javascript" language="javascript" src="{$level}js/jquery.grrrid.js"></script>
-	<script type="text/javascript" language="javascript" src="{$level}js/config.js"></script>

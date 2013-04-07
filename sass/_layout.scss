@@ -9,16 +9,14 @@
 ----------------------------------------------------*/
 #wrap{
 	margin: 0 auto;
-	width: $base_width;
+	width: $wrapWidth;
 	position: relative;
 }
 
 /*----------------------------------------------------
 	#gHeader
 ----------------------------------------------------*/
-#gHeader{
-	padding: 0 0 20px;
-}
+#hader{}
 
 
 /*----------------------------------------------------
@@ -26,27 +24,13 @@
 ----------------------------------------------------*/
 #main {
 	@extend .clearfix;
-	padding: 30px $main_padding 0;
-	border: 2px solid $main_color;
 	@include border-radius(4px);
-	background-color: $base_color;
-	box-shadow: 2px 2px 5px rgba(#333,.3);
 }
 
-#contents{
-	float: left;
-	width: $contents_width;
-}
-#sideArea{
-	float: right;
-	width: $side_width;
-}
 
 /*----------------------------------------------------
-	#gFooter
+	#footer
 ----------------------------------------------------*/
-#gFooter {
+#footer {
 	@extend .clearfix;
 }
-
-

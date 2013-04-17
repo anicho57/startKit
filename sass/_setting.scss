@@ -17,21 +17,20 @@ $use_extend_object: true;
 $opacity_value: .75;
 
 // 余白調整用のクラスを使用するか
-$use_spacing_classes: false;
+$use_spacing_classes: true;
 
 
 // 画像のパス
-$img_path: "../images/";
+$imagePath: "../images/";
 
 
 // ベースフォント
-$base_font: "メイリオ", "Meiryo", verdana, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", Osaka, "ＭＳ Ｐゴシック", "MS PGothic", Sans-Serif;
-$base_font_ie: "ＭＳ Ｐゴシック", "MS PGothic", Sans-Serif;
+$baseFont: "メイリオ", "Meiryo", verdana, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", Osaka, "ＭＳ Ｐゴシック", "MS PGothic", Sans-Serif;
+$baseFontIe: "ＭＳ Ｐゴシック", "MS PGothic", Sans-Serif;
 
 
 // ページ全体の横幅
 $wrapWidth: 960px;
-
 
 
 // 要素のベースマージン
@@ -58,8 +57,5 @@ $fontColor: #60574b;
 // 付与するベンダープレフィックス
 $set_prefix: -webkit-, -moz-, -ms-, -o-, '';
 
-
-// 角丸の初期値
-$br_value: 3px;
 
 

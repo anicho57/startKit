@@ -1,26 +1,17 @@
-/* #wrapper */
-#wrapper {
-     //all
-    @if $type == all {
-        width: 100%;
+#id {
+    @if $type == "all" {
 
-    } @else if $type==sp or $type==tab or $type==pc {
+    } @else {
+        @if $type == "sp" or $type == "tab"{
 
-        @if $type == sp or $type == tab {
-            .sub-nav {
-                display: none;
-            }
         }
 
-        @if $type == sp {
-            color: #000000;
+        @if $type == "sp" {
 
-        } @else if $type == tab {
-            color: #CCCCCC;
+        } @else if $type == "tab" {
 
-        } @else if $type == pc {
-            color: #FFFFFF;
+        } @else if $type == "pc" {
+
         }
     }
 }
-

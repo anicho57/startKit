@@ -53,10 +53,12 @@ a[href$=".bmp"] img {
 	*zoom: 1;
 	&:after {
 		content: ".";
-		display: block;
-		clear: both;
-		height: 0;
 		visibility: hidden;
+		clear: both;
+		display: block;
+		height: 0;
+		line-height: 0;
+		font-size: 0;
 	}
 }
 

@@ -53,6 +53,16 @@ a{
 }
 
 
+::-moz-selection{  //firefox
+	background-color: lighten($accentColor, 10%);
+	color: #fff;
+}
+::selection { // css3
+	background-color: lighten($accentColor, 10%);
+	color: #fff;
+}
+
+
 // レイアウト関係のスタイル読み込み
 @import "layout";
 

@@ -1,15 +1,5 @@
 @charset "utf-8";
 
-
-::-moz-selection{  //firefox
-	background-color: lighten($accentColor, 10%);
-	color: #fff;
-}
-::selection { // css3
-	background-color: lighten($accentColor, 10%);
-	color: #fff;
-}
-
 // 簡易ロールオーバー
 .opacity {
 	opacity: $opacity_value;

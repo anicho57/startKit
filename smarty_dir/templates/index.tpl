@@ -10,13 +10,15 @@
 {include file="htparts/headRead.tpl"}
 
 </head>
-<body id="home">
+<body id="{$pid}">
 <div id="wrap">
 
 {include file="htparts/header.tpl"}
 
+<div id="main">
 
-
+</div>
+<!-- /#main -->
 
 {include file="htparts/footer.tpl"}
 

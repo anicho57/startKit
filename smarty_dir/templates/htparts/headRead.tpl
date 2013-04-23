@@ -1,3 +1,3 @@
 <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-	<link href="{$level}css/style.css" rel="stylesheet" type="text/css" />
+	<link href="{$level}css/style.css" rel="stylesheet" />
 

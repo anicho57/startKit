@@ -1,5 +1,6 @@
 <footer id="footer">
 
-	<p id="copyright"><small>Copyright &copy; 2013 siteName. All rights reserved.</small></p>
+	<p id="copyright"><small>&copy; 2013<script>now = new Date();if(now.getFullYear() != 2013)document.write( ' - ' + now.getFullYear() );</script> siteName</small></p>
 
 </footer>
+<!-- /#footer -->

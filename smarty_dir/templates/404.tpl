@@ -10,7 +10,7 @@
 {include file="htparts/headRead.tpl"}
 
 </head>
-<body id="e404">
+<body id="{$pid}">
 <div id="wrap">
 
 {include file="htparts/header.tpl"}

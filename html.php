@@ -74,6 +74,13 @@ function dwrite($target){
         //print_r($level);
         $smarty->assign("level", $level);
 
+        $basePath = str_replace("html.php","",$_SERVER['PHP_SELF']);
+        $path = str_replace($basePath,"",$target);
+
+        $pid = reset(explode('/', $path));
+        if( $pid == "index" ) $pid = "home";
+        $smarty->assign("pid", $pid);
+
         $html = $smarty->fetch("$target.tpl");
 
 

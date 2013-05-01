@@ -56,6 +56,10 @@ a[href$=".bmp"] img {
 	}
 }
 
+.mincho{
+	font-family: $minchoFont;
+}
+
 // float: right
 .fr,
 .imgR {
@@ -85,7 +89,7 @@ a[href$=".bmp"] img {
 // text-align: right
 .tR{ text-align: right !important;}
 
-
+.clr{ clear: both;}
 
 // form element
 textarea, input, select{

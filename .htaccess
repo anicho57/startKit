@@ -1,10 +1,10 @@
 DirectoryIndex index.html index.php
 
 RewriteEngine On
-RewriteBase /
+RewriteBase /shimbundo.co.jp/
 RewriteRule ^index\.php$ - [L]
 
-RewriteCond %{REQUEST_FILENAME} !(.*).(jpg|gif|png|php|css|js|pdf|doc|xls|swf|wmv|flv|mp3)$
+RewriteCond %{REQUEST_FILENAME} !(.*).(jpg|gif|png|php|css|js|json|xml|eot|otf|svg|ttf|woff|pdf|doc|xls|swf|wmv|flv|mp3)$
 RewriteRule . index.php [L]
 
 # File css/js gzip Setting

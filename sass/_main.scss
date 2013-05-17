@@ -76,21 +76,21 @@ a{
 
 // /* smart phone
 // -------------------------------------------------- */
-// @media only screen and (max-width:767px) {
+// @media only screen and (max-width:#{$mqTabWidth - 1}) {
 //     $type: "sp";
 //     @import "media_query"
 // }
 
 // /* tablet
 // -------------------------------------------------- */
-// @media only screen and (min-width:768px) and (max-width:1023px) {
+// @media only screen and (min-width:#{$mqTabWidth}) and (max-width:#{$mqPcWidth - 1}) {
 //     $type: "tab";
 //     @import "media_query"
 // }
 
 // /* pc
 // -------------------------------------------------- */
-// @media only screen and (min-width:1024px) {
+// @media only screen and (min-width:#{$mqPcWidth}) {
 //     $type: "pc";
 //     @import "media_query"
 // }

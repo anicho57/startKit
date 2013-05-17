@@ -27,6 +27,15 @@ $fontSizeList: 62%, 70%, 77%, 85%, 93%, 100%, 108%, 116%, 124%, 131%, 139%, 147%
 	-ms-filter: "alpha(opacity=#{$opacity_value * 100})";
 }
 
+.anime{
+  @each $prefix in $set_prefix {
+    #{$prefix}transition: color .3s linear,
+                        background-color .3s linear,
+                        opacity .3s linear,
+                        border-color .3s linear;
+  }
+}
+
 /* clearfix */
 .clearfix {
 	*zoom: 1;

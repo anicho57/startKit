@@ -23,7 +23,7 @@
  * */
 
 
-$path = "./smarty_dir/templates/";
+$path = "./";
 
 //指定パス以下のディレクトリ・ファイル取得
 $list = getdirlist( $path );//file[] dir[] に格納
@@ -36,30 +36,28 @@ echo "</html>\n";
 
 function gethtmlpath($array,$level=NULL){
 
-        foreach( $array as $key => $arrs ){
+  foreach( $array as $key => $arrs ){
+    if ($key == 'file'){
+      foreach ($arrs as $value){
+        if( end(explode('.', $value)) == "tpl" && !strstr($level,'htparts') )/*htpartsのテキストが含まれるファイルは除く*/
+          dwrite($level. substr($value, 0, strrpos($value, '.')));
+      }
+    }
+    if($key == 'dir'){
+      foreach( $arrs as $k => $arr){
+        $dirname = $level.$k."/";
+        gethtmlpath($arr,$dirname);
+      }
+    }
+  }
 
-                if ($key == 'file'){
-                        foreach ($arrs as $value){
-                                if(strstr($level,'htparts') == false)/*htpartsのテキストが含まれるファイルは除く*/
-                                        dwrite($level. substr($value, 0, strrpos($value, '.')));
-                        }
-                }
-                if($key == 'dir'){
-                        foreach( $arrs as $k => $arr){
-                                $dirname = $level.$k."/";
-                                gethtmlpath($arr,$dirname);
-                        }
-
-                }
-
-        }
 }
 
 
 function dwrite($target){
 
 
-        require_once('smarty_dir/MySmarty.class.php');
+        require_once('_setting/SiteSetting.class.php');
         $smarty = new MySmarty;
 
         $kazu = substr_count( $target, "/" );

@@ -1,7 +1,7 @@
 DirectoryIndex index.html index.php
 
 RewriteEngine On
-RewriteBase /shimbundo.co.jp/
+RewriteBase /startkit/
 RewriteRule ^index\.php$ - [L]
 
 RewriteCond %{REQUEST_FILENAME} !(.*).(jpg|gif|png|php|css|js|json|xml|eot|otf|svg|ttf|woff|pdf|doc|xls|swf|wmv|flv|mp3)$

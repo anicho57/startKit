@@ -7,23 +7,23 @@
 
 	<title>siteTitle</title>
 
-{include file="htparts/headRead.tpl"}
+{include file="_htparts/headRead.tpl"}
 
 </head>
 <body id="{$pid}">
 <div id="wrap">
 
-{include file="htparts/header.tpl"}
+{include file="_htparts/header.tpl"}
 
 <div id="main">
 
 </div>
 <!-- /#main -->
 
-{include file="htparts/footer.tpl"}
+{include file="_htparts/footer.tpl"}
 
 </div>
 <!-- /#wrap -->
-{include file="htparts/footRead.tpl"}
+{include file="_htparts/footRead.tpl"}
 </body>
 </html>

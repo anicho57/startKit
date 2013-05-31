@@ -70,6 +70,9 @@ a{
 
 @import "all";
 
+// $type: "all";
+// @import 'mq/common';
+
 // /*----------------------------------------------------
 // 	media query
 // ----------------------------------------------------*/
@@ -78,20 +81,20 @@ a{
 // -------------------------------------------------- */
 // @media only screen and (max-width:#{$mqTabWidth - 1}) {
 //     $type: "sp";
-//     @import "media_query"
+//     @import 'mq/common';
 // }
 
 // /* tablet
 // -------------------------------------------------- */
 // @media only screen and (min-width:#{$mqTabWidth}) and (max-width:#{$mqPcWidth - 1}) {
 //     $type: "tab";
-//     @import "media_query"
+//     @import 'mq/common';
 // }
 
 // /* pc
 // -------------------------------------------------- */
 // @media only screen and (min-width:#{$mqPcWidth}) {
 //     $type: "pc";
-//     @import "media_query"
+//     @import 'mq/common';
 // }
 

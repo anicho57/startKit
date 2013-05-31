@@ -8,6 +8,7 @@
 	<title>siteTitle</title>
 
 {include file="_htparts/headRead.tpl"}
+	<link href="{$level}css/{$pid}.css" rel="stylesheet" />
 
 </head>
 <body id="{$pid}">

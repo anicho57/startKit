@@ -55,4 +55,14 @@ class SiteSetting{
         return $path;
     }
   }
+
+  function get_html_path(){
+    $path = $this->get_path();
+    if (strstr($path,'.') == false){
+        return $path . "index.html";
+    }else{
+        return $path;
+    }
+  }
+
 }

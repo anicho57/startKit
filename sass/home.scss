@@ -10,3 +10,31 @@
 @import "mixin";
 
 
+$type: "all";
+@import 'mq/home';
+
+/*----------------------------------------------------
+	media query
+----------------------------------------------------*/
+
+/* smart phone
+-------------------------------------------------- */
+@media only screen and (max-width:#{$mqTabWidth - 1}) {
+    $type: "sp";
+    @import 'mq/home';
+}
+
+/* tablet
+-------------------------------------------------- */
+@media only screen and (min-width:#{$mqTabWidth}) and (max-width:#{$mqPcWidth - 1}) {
+    $type: "tab";
+    @import 'mq/home';
+}
+
+/* pc
+-------------------------------------------------- */
+@media only screen and (min-width:#{$mqPcWidth}) {
+    $type: "pc";
+    @import 'mq/home';
+}
+

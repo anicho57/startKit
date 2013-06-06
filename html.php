@@ -57,7 +57,7 @@ function gethtmlpath($array,$level=NULL){
 function dwrite($target){
 
 
-        require_once('_setting/SiteSetting.class.php');
+        require_once('_libs/SiteSetting.class.php');
         $smarty = new MySmarty;
 
         $kazu = substr_count( $target, "/" );

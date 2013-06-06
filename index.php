@@ -1,6 +1,6 @@
 <?php
 
-require_once('_setting/SiteSetting.class.php');
+require_once('_libs/SiteSetting.class.php');
 
 $setting = new SiteSetting;
 $smarty = new MySmarty;
@@ -15,7 +15,7 @@ if ($smartyPath == "contacts/index"){
     include './includes/contact.php';
 }else{
     // tpl -> html -> 404
-    if(file_exists($smarty->template_dir[0] . "$smartyPath.tpl")){
+    if(file_exists($smarty->template_dir[0] . "$smartyPath.tpl") && !strstr($smartyPath,'_htparts')){
       $smarty->display("$smartyPath.tpl");
     }else if(file_exists($smarty->template_dir[0] . $setting->get_html_path())){ // html output
       echo file_get_contents($smarty->template_dir[0] . $setting->get_html_path());

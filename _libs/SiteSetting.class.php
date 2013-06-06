@@ -3,7 +3,7 @@
 define('HTDOCS', 'D:\xampp\htdocs\startkit/');
 // Smarty
 define('SMARTY_DIR', 'D:\xampp\libs\Smarty3\libs/');
-define('SMARTY_MYDIR', HTDOCS . '_setting/');
+define('SMARTY_MYDIR', HTDOCS . '_libs/');
 
 
 require_once('MySmarty.class.php');
@@ -37,7 +37,8 @@ class SiteSetting{
   function get_page_id(){
     $path = $this->get_path();
     $pid = reset(explode('/', $path));
-    if( $pid == "" ){
+    echo strstr($pid, '.');
+    if( $pid == "" || strstr($pid, '.') == '.html' ){
       return "home";
     }else{
       return $pid;

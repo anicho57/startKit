@@ -39,7 +39,7 @@ function gethtmlpath($array,$level=NULL){
   foreach( $array as $key => $arrs ){
     if ($key == 'file'){
       foreach ($arrs as $value){
-        if( end(explode('.', $value)) == "tpl" && !strstr($level,'htparts') )/*htpartsのテキストが含まれるファイルは除く*/
+        if( end(explode('.', $value)) == "tpl" && !strstr($level,'htparts') && $value != "404.tpl" )/*htpartsのテキストが含まれるファイルは除く*/
           dwrite($level. substr($value, 0, strrpos($value, '.')));
       }
     }

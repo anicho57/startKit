@@ -13,11 +13,15 @@ $use_html5: true;
 // 汎用クラスを使用するか
 $use_extend_object: true;
 
-// 簡易ロールオーバーの値
-$opacity_value: .75;
-
 // 余白調整用のクラスを使用するか
 $use_spacing_classes: true;
+
+// 固定幅用のクラスを使用するか
+$use_box_width: true;
+
+
+// 簡易ロールオーバーの値
+$opacity_value: .75;
 
 
 // 画像のパス

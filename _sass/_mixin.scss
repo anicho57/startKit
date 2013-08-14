@@ -27,6 +27,12 @@ $fontSizeList: 62%, 70%, 77%, 85%, 93%, 100%, 108%, 116%, 124%, 131%, 139%, 147%
 	-ms-filter: "alpha(opacity=#{$opacity_value * 100})";
 }
 
+.limpidity{
+	filter: alpha(opacity=0);
+	opacity: 0;
+	_visibility: hidden;
+}
+
 .anime{
   @each $prefix in $set_prefix {
     #{$prefix}transition: color .3s linear,
@@ -63,4 +69,10 @@ $fontSizeList: 62%, 70%, 77%, 85%, 93%, 100%, 108%, 116%, 124%, 131%, 139%, 147%
 	white-space: -o-pre-wrap;
 	white-space: -moz-pre-wrap;
 	word-wrap: break-word;
+}
+
+.notxt{
+	overflow: hidden;
+	text-indent: 100%;
+	white-space: nowrap;
 }

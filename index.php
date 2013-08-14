@@ -17,7 +17,7 @@ if ($smartyPath == "contacts/index"){
     // tpl -> html -> 404
     if(file_exists($smarty->template_dir[0] . "$smartyPath.tpl") && !strstr($smartyPath,'_htparts')){
       $smarty->display("$smartyPath.tpl");
-    }else if(file_exists($smarty->template_dir[0] . $setting->get_html_path())){ // html output
+    }else if(file_exists($smarty->template_dir[0] . $setting->get_html_path()) && end(explode('.', $setting->get_html_path())) == "html"){ // html output
       echo file_get_contents($smarty->template_dir[0] . $setting->get_html_path());
     }else{
       header('HTTP/1.0 404 Not Found');

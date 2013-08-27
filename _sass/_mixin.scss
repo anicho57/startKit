@@ -19,6 +19,13 @@ $fontSizeList: 62%, 70%, 77%, 85%, 93%, 100%, 108%, 116%, 124%, 131%, 139%, 147%
 	@return nth($fontSizeList, $size - 7);
 }
 
+@mixin text-border($color, $size:1px) {
+	text-shadow: $size 0 0 $color,
+				 0 $size 0 $color,
+				(-$size) 0 0 $color,
+				 0 (-$size) 0 $color;
+}
+
 // 簡易ロールオーバー
 .opacity {
 	opacity: $opacity_value;
@@ -63,12 +70,18 @@ $fontSizeList: 62%, 70%, 77%, 85%, 93%, 100%, 108%, 116%, 124%, 131%, 139%, 147%
 	*zoom: 1;
 }
 
-.nobr{
+.rapbr{
 	white-space: pre-line;
 	white-space: -pre-wrap;
 	white-space: -o-pre-wrap;
 	white-space: -moz-pre-wrap;
 	word-wrap: break-word;
+}
+
+.oneline{
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
 }
 
 .notxt{

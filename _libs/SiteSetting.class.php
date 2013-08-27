@@ -37,11 +37,22 @@ class SiteSetting{
   function get_page_id(){
     $path = $this->get_path();
     $pid = reset(explode('/', $path));
-    echo strstr($pid, '.');
     if( $pid == "" || strstr($pid, '.') == '.html' ){
       return "home";
     }else{
       return $pid;
+    }
+  }
+
+  function get_current_dir(){
+    $path = $this->get_path();
+    $buff = explode('/', $path);
+    array_pop($buff);
+    $dir = end($buff);
+    if( $dir == "" ){
+      return "";
+    }else{
+      return $dir;
     }
   }
 

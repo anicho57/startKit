@@ -1,7 +1,7 @@
 cd /d %~dp0
-:: ���݂̃f�B���N�g���Ɉړ�
+:: 現在のディレクトリに移動
 
-:: �ݒ��config.rb
+:: 設定はconfig.rb
 
 compass watch
 pause

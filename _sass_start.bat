@@ -1,23 +1,23 @@
 cd /d %~dp0
-:: Œ»İ‚ÌƒfƒBƒŒƒNƒgƒŠ‚ÉˆÚ“®
+:: ç¾åœ¨ã®ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã«ç§»å‹•
 
 sass --style compact --watch _sass:css --cache-location .sass-cache --compass
 
-:: --style      CSS‚ÌƒtƒH[ƒ}ƒbƒg
-:: :expanded    {} ‚Å‰üs‚·‚éŒ`B‚æ‚­‚İ‚é CSS ‚Ì‹LqŒ`®‚Í‚±‚ê‚Å‚·B‰Â“Ç«‚½‚©‚µB
-:: :nested      Sass ƒtƒ@ƒCƒ‹‚ÌƒlƒXƒg‚ª‚»‚Ì‚Ü‚Üˆø‚«Œp‚ª‚ê‚éŒ`B
-:: :compact     ƒZƒŒƒNƒ^‚Æ‘®«‚ğ 1 s‚É‚Ü‚Æ‚ß‚Äo—ÍB‰Â“Ç«’á‚ßB
-:: :compressed  ˆ³k‚µ‚Äo—Íi‘S‚Ä‚Ì‰üsEƒRƒƒ“ƒg‚ğƒgƒ‹ƒcƒjB‰Â“Ç«‚Í“Š‚°Ì‚ÄB
-:: --watch scssƒtƒ@ƒCƒ‹‚Ì©“®ŠÄ‹
-:: sass:html/css sassƒtƒ@ƒCƒ‹‚ÌêŠ:cssƒtƒ@ƒCƒ‹‚Ì‘‚«o‚µæ
-:: --cache-location ƒLƒƒƒbƒVƒ…ƒtƒ@ƒCƒ‹‚Ì•Û‘¶æ
+:: --style      CSSã®ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆ
+:: :expanded    {} ã§æ”¹è¡Œã™ã‚‹å½¢ã€‚ã‚ˆãã¿ã‚‹ CSS ã®è¨˜è¿°å½¢å¼ã¯ã“ã‚Œã§ã™ã€‚å¯èª­æ€§ãŸã‹ã—ã€‚
+:: :nested      Sass ãƒ•ã‚¡ã‚¤ãƒ«ã®ãƒã‚¹ãƒˆãŒãã®ã¾ã¾å¼•ãç¶™ãŒã‚Œã‚‹å½¢ã€‚
+:: :compact     ã‚»ãƒ¬ã‚¯ã‚¿ã¨å±æ€§ã‚’ 1 è¡Œã«ã¾ã¨ã‚ã¦å‡ºåŠ›ã€‚å¯èª­æ€§ä½ã‚ã€‚
+:: :compressed  åœ§ç¸®ã—ã¦å‡ºåŠ›ï¼ˆå…¨ã¦ã®æ”¹è¡Œãƒ»ã‚³ãƒ¡ãƒ³ãƒˆã‚’ãƒˆãƒ«ãƒ„ãƒ¡ï¼‰ã€‚å¯èª­æ€§ã¯æŠ•ã’æ¨ã¦ã€‚
+:: --watch scssãƒ•ã‚¡ã‚¤ãƒ«ã®è‡ªå‹•ç›£è¦–
+:: sass:html/css sassãƒ•ã‚¡ã‚¤ãƒ«ã®å ´æ‰€:cssãƒ•ã‚¡ã‚¤ãƒ«ã®æ›¸ãå‡ºã—å…ˆ
+:: --cache-location ã‚­ãƒ£ãƒƒã‚·ãƒ¥ãƒ•ã‚¡ã‚¤ãƒ«ã®ä¿å­˜å…ˆ
 
-:: sudo gem install sass	SassƒCƒ“ƒXƒg[ƒ‹
-:: sudo gem install sass --pre	SassƒvƒŠƒŠ[ƒXƒCƒ“ƒXƒg[ƒ‹
-:: sass --version	Sassƒo[ƒWƒ‡ƒ“Šm”F
-:: sass --watch style.scss:style.css	ŠÄ‹
-:: sass --debug-info --watch style.scss:style.css	debug-info‘‚«o‚µ
-:: sass --sourcemap --watch style.scss:style.css	Source maps‘‚«o‚µ
-:: sass --style expanded --sourcemap --watch style.scss:style.css	ƒAƒEƒgƒvƒbƒgƒXƒ^ƒCƒ‹w’è‚ÆSource maps‘‚«o‚µ
-:: sass_options = {:debug_info => true}	[config.rb] Compass‚Ådebug-info‘‚«o‚µ
-:: sass --compass --sourcemap --watch style.scss:style.css	Compass‚ÅSource maps‘‚«o‚µ
+:: sudo gem install sass	Sassã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«
+:: sudo gem install sass --pre	Sassãƒ—ãƒªãƒªãƒ¼ã‚¹ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«
+:: sass --version	Sassãƒãƒ¼ã‚¸ãƒ§ãƒ³ç¢ºèª
+:: sass --watch style.scss:style.css	ç›£è¦–
+:: sass --debug-info --watch style.scss:style.css	debug-infoæ›¸ãå‡ºã—
+:: sass --sourcemap --watch style.scss:style.css	Source mapsæ›¸ãå‡ºã—
+:: sass --style expanded --sourcemap --watch style.scss:style.css	ã‚¢ã‚¦ãƒˆãƒ—ãƒƒãƒˆã‚¹ã‚¿ã‚¤ãƒ«æŒ‡å®šã¨Source mapsæ›¸ãå‡ºã—
+:: sass_options = {:debug_info => true}	[config.rb] Compassã§debug-infoæ›¸ãå‡ºã—
+:: sass --compass --sourcemap --watch style.scss:style.css	Compassã§Source mapsæ›¸ãå‡ºã—

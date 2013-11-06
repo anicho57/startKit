@@ -45,6 +45,8 @@ pre, code, kbd, samp, tt { font-family: monospace; *font-size: 108%; line-height
 
 .opacity, .imgHover img:hover { opacity: 0.75; -moz-opacity: 0.75; filter: alpha(opacity=75); -ms-filter: "alpha(opacity=75)"; }
 
+.limpidity { filter: alpha(opacity=0); opacity: 0; _visibility: hidden; }
+
 .anime { -webkit-transition: color .3s linear, background-color .3s linear, opacity .3s linear, border-color .3s linear; -moz-transition: color .3s linear, background-color .3s linear, opacity .3s linear, border-color .3s linear; -ms-transition: color .3s linear, background-color .3s linear, opacity .3s linear, border-color .3s linear; -o-transition: color .3s linear, background-color .3s linear, opacity .3s linear, border-color .3s linear; transition: color .3s linear, background-color .3s linear, opacity .3s linear, border-color .3s linear; }
 
 /* clearfix */
@@ -53,14 +55,18 @@ pre, code, kbd, samp, tt { font-family: monospace; *font-size: 108%; line-height
 
 .inlineBlock, a.bn01, a.bn02, a.bn03, .ib { display: inline-block; *display: inline; *zoom: 1; }
 
-.nobr { white-space: pre-line; white-space: -pre-wrap; white-space: -o-pre-wrap; white-space: -moz-pre-wrap; word-wrap: break-word; }
+.rapbr { white-space: pre-line; white-space: -pre-wrap; white-space: -o-pre-wrap; white-space: -moz-pre-wrap; word-wrap: break-word; }
+
+.oneline { overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+
+.notxt { overflow: hidden; text-indent: 100%; white-space: nowrap; }
 
 /*----------------------------------------------------
 	element style
 ----------------------------------------------------*/
-body { color: #333333; font-family: "メイリオ", "Meiryo", verdana, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", Osaka, "ＭＳ Ｐゴシック", "MS PGothic", Sans-Serif; letter-spacing: 1px; line-height: 1.4; }
+body { color: #333333; font-family: "Segoe UI Light", "Segoe UI", Helvetica-Light, "Helvetica Light", Helvetica, YuGothic, "Yu Gothic", "游ゴシック", "ヒラギノ角ゴ Pro", "Hiragino Kaku Gothic Pro", Meiryo, "メイリオ", "MS PGothic", "ＭＳ Ｐゴシック", sans-serif; letter-spacing: 1px; line-height: 1.4; }
 
-input, select, option, textarea { font-family: "メイリオ", "Meiryo", verdana, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", Osaka, "ＭＳ Ｐゴシック", "MS PGothic", Sans-Serif; }
+input, select, option, textarea { font-family: "Segoe UI Light", "Segoe UI", Helvetica-Light, "Helvetica Light", Helvetica, YuGothic, "Yu Gothic", "游ゴシック", "ヒラギノ角ゴ Pro", "Hiragino Kaku Gothic Pro", Meiryo, "メイリオ", "MS PGothic", "ＭＳ Ｐゴシック", sans-serif; }
 
 * html body, * html input, * html select, * html option, * html textarea { font-family: "ＭＳ Ｐゴシック", "MS PGothic", Sans-Serif; }
 
@@ -75,123 +81,13 @@ a:active { color: #f90; }
 
 ::selection { background-color: #d76679; color: #fff; }
 
-/*----------------------------------------------------
-	#wrapper
-----------------------------------------------------*/
-#wrap { margin: 0 auto; width: 960px; }
-
-/*----------------------------------------------------
-	#header
-----------------------------------------------------*/
-/*----------------------------------------------------
-	#main
-----------------------------------------------------*/
-/*----------------------------------------------------
-	#footer
-----------------------------------------------------*/
-a[href$=".pdf"], a.pdf { padding-right: 24px; }
-
-a[target="_blank"], a.blank { padding-right: 20px; }
-
 .zoomIn, a[href$=".gif"] img, a[href$=".png"] img, a[href$=".jpg"] img, a[href$=".jpeg"] img, a[href$=".bmp"] img { cursor: -webkit-zoom-in; cursor: -moz-zoom-in; cursor: -ms-zoom-in; cursor: -o-zoom-in; cursor: zoom-in; }
 
 .pointer, input[type="submit"], button, .bn01:hover, .bn02:hover, .bn03:hover { cursor: pointer; }
 
+.mincho { font-family: YuMincho, "Yu Mincho", "游明朝体", "Hiragino Mincho Pro", "ヒラギノ明朝 Pro", "MS PMincho", "ＭＳ Ｐ明朝", serif; }
+
 .hide { display: none; }
-
-.box40 { width: 40px; }
-
-.box50 { width: 50px; }
-
-.box60 { width: 60px; }
-
-.box70 { width: 70px; }
-
-.box80 { width: 80px; }
-
-.box90 { width: 90px; }
-
-.box100 { width: 100px; }
-
-.box110 { width: 110px; }
-
-.box120 { width: 120px; }
-
-.box130 { width: 130px; }
-
-.box140 { width: 140px; }
-
-.box150 { width: 150px; }
-
-.box160 { width: 160px; }
-
-.box170 { width: 170px; }
-
-.box180 { width: 180px; }
-
-.box190 { width: 190px; }
-
-.box200 { width: 200px; }
-
-.box210 { width: 210px; }
-
-.box220 { width: 220px; }
-
-.box230 { width: 230px; }
-
-.box240 { width: 240px; }
-
-.box250 { width: 250px; }
-
-.box260 { width: 260px; }
-
-.box270 { width: 270px; }
-
-.box280 { width: 280px; }
-
-.box290 { width: 290px; }
-
-.box300 { width: 300px; }
-
-.box310 { width: 310px; }
-
-.box320 { width: 320px; }
-
-.box330 { width: 330px; }
-
-.box340 { width: 340px; }
-
-.box350 { width: 350px; }
-
-.box360 { width: 360px; }
-
-.box370 { width: 370px; }
-
-.box380 { width: 380px; }
-
-.box390 { width: 390px; }
-
-.box400 { width: 400px; }
-
-.box410 { width: 410px; }
-
-.box420 { width: 420px; }
-
-.box430 { width: 430px; }
-
-.box440 { width: 440px; }
-
-.box450 { width: 450px; }
-
-.box460 { width: 460px; }
-
-.box470 { width: 470px; }
-
-.box480 { width: 480px; }
-
-.box490 { width: 490px; }
-
-.box500 { width: 500px; }
 
 .mt0 { margin-top: 0px !important; }
 
@@ -403,8 +299,6 @@ a[target="_blank"], a.blank { padding-right: 20px; }
 
 .p100 { padding: 100px !important; }
 
-.mincho { font-family: "ヒラギノ明朝 Pro W6", "Hiragino Mincho Pro", "HGS明朝E", "ＭＳ Ｐ明朝", serif; }
-
 .fr, .imgR { float: right; margin-left: 10px; }
 
 .fl, .imgL { float: left; margin-right: 10px; }
@@ -419,6 +313,102 @@ a[target="_blank"], a.blank { padding-right: 20px; }
 
 .clr { clear: both; }
 
+.description { font-size: 93%; color: #666; letter-spacing: 0; }
+
+.box40 { width: 40px; }
+
+.box50 { width: 50px; }
+
+.box60 { width: 60px; }
+
+.box70 { width: 70px; }
+
+.box80 { width: 80px; }
+
+.box90 { width: 90px; }
+
+.box100 { width: 100px; }
+
+.box110 { width: 110px; }
+
+.box120 { width: 120px; }
+
+.box130 { width: 130px; }
+
+.box140 { width: 140px; }
+
+.box150 { width: 150px; }
+
+.box160 { width: 160px; }
+
+.box170 { width: 170px; }
+
+.box180 { width: 180px; }
+
+.box190 { width: 190px; }
+
+.box200 { width: 200px; }
+
+.box210 { width: 210px; }
+
+.box220 { width: 220px; }
+
+.box230 { width: 230px; }
+
+.box240 { width: 240px; }
+
+.box250 { width: 250px; }
+
+.box260 { width: 260px; }
+
+.box270 { width: 270px; }
+
+.box280 { width: 280px; }
+
+.box290 { width: 290px; }
+
+.box300 { width: 300px; }
+
+.box310 { width: 310px; }
+
+.box320 { width: 320px; }
+
+.box330 { width: 330px; }
+
+.box340 { width: 340px; }
+
+.box350 { width: 350px; }
+
+.box360 { width: 360px; }
+
+.box370 { width: 370px; }
+
+.box380 { width: 380px; }
+
+.box390 { width: 390px; }
+
+.box400 { width: 400px; }
+
+.box410 { width: 410px; }
+
+.box420 { width: 420px; }
+
+.box430 { width: 430px; }
+
+.box440 { width: 440px; }
+
+.box450 { width: 450px; }
+
+.box460 { width: 460px; }
+
+.box470 { width: 470px; }
+
+.box480 { width: 480px; }
+
+.box490 { width: 490px; }
+
+.box500 { width: 500px; }
+
 textarea, input, select { margin: 1px; padding: 3px; }
 
 input[type="text"], input[type="password"], select, textarea { border: 1px solid #ddd; border-radius: 3px; background-color: #fbfbfb; box-shadow: 1px 1px 2px rgba(200, 200, 200, 0.2) inset; }
@@ -432,8 +422,6 @@ input[type="text"]:focus, input[type="password"]:focus, select:focus, textarea:f
 :-ms-input-placeholder { color: #999; }
 
 .placeholder { color: #999; }
-
-.description { font-size: 93%; color: #666; letter-spacing: 0; }
 
 /* button */
 .bn01, .bn02, .bn03 { border-radius: 4px; }
@@ -456,10 +444,18 @@ input.bn01, input.bn02, input.bn03 { padding: .3em .8em .2em; }
 .bn03:hover { box-shadow: inset 0 0 5px 3px rgba(255, 255, 255, 0.4); }
 
 /*----------------------------------------------------
+	#wrapper
+----------------------------------------------------*/
+#wrap { margin: 0 auto; width: 960px; }
+
+/*----------------------------------------------------
 	#header
 ----------------------------------------------------*/
 /*----------------------------------------------------
 	#global navigation
+----------------------------------------------------*/
+/*----------------------------------------------------
+	#main
 ----------------------------------------------------*/
 /*----------------------------------------------------
 	#contents

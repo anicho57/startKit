@@ -2,7 +2,7 @@
 
 
 .imgHover img:hover {
-	@extend .opacity;
+	@extend %opacity;
 }
 
 .zoomIn,
@@ -14,12 +14,6 @@ a[href$=".bmp"] img {
 	@each $prefix in $set_prefix {
 	cursor: #{$prefix}zoom-in;
 	}
-}
-.pointer{
-	cursor: pointer;
-}
-.mincho{
-	font-family: $minchoFont;
 }
 
 .hide{display: none;}
@@ -106,7 +100,7 @@ a[href$=".bmp"] img {
 		padding: 3px;
 	}
 	input[type="submit"],button{
-		@extend .pointer;
+		@extend %pointer;
 	}
 	input[type="text"],input[type="password"],select,textarea{
 		border: 1px solid #ddd;
@@ -125,30 +119,30 @@ a[href$=".bmp"] img {
 	.placeholder{color: #999;}
 
 	/* button */
-	.bn01,.bn02,.bn03{
+	.btn01,.btn02,.btn03{
 		border-radius: 4px;
 	}
-	a.bn01,a.bn02,a.bn03{
+	a.btn01,a.btn02,a.btn03{
 		padding: .5em 1em .4em;
 		text-decoration: none !important;
 		@extend .inlineBlock;
 	}
-	input.bn01,input.bn02,input.bn03{
+	input.btn01,input.btn02,input.btn03{
 		padding: .3em .8em .2em;
 	}
-	.bn01:hover,.bn02:hover,.bn03:hover{
-		@extend .pointer;
+	.btn01:hover,.btn02:hover,.btn03:hover{
+		@extend %pointer;
 	}
-	.bnL{
+	.btnL{
 		padding: .6em 3em .5em !important;
 		font-size: fz(14);
 	}
-	.bnS{
+	.btnS{
 		padding: .1em .3em 0 !important;
 		font-size: fz(11);
 	}
 
-	.bn01{
+	.btn01{
 		border: solid 1px #bbb;
 		background-color: #fff;
 		color: #333 !important;
@@ -158,7 +152,7 @@ a[href$=".bmp"] img {
 		}
 	}
 
-	.bn02{
+	.btn02{
 		border: solid 1px $mainColor;
 		color: #fff !important;
 		text-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
@@ -170,7 +164,7 @@ a[href$=".bmp"] img {
 		}
 	}
 
-	.bn03{
+	.btn03{
 		border: solid 1px $accentColor;
 		color: #fff !important;
 		text-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);

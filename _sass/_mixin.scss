@@ -27,20 +27,20 @@ $fontSizeList: 62%, 70%, 77%, 85%, 93%, 100%, 108%, 116%, 124%, 131%, 139%, 147%
 }
 
 // 簡易ロールオーバー
-.opacity {
+%opacity {
 	opacity: $opacity_value;
 	-moz-opacity: $opacity_value;
 	filter: alpha(opacity=#{$opacity_value * 100});
 	-ms-filter: "alpha(opacity=#{$opacity_value * 100})";
 }
 
-.limpidity{
+%limpidity{
 	filter: alpha(opacity=0);
 	opacity: 0;
 	_visibility: hidden;
 }
 
-.anime{
+%anime{
   @each $prefix in $set_prefix {
     #{$prefix}transition: color .3s linear,
                         background-color .3s linear,
@@ -70,7 +70,7 @@ $fontSizeList: 62%, 70%, 77%, 85%, 93%, 100%, 108%, 116%, 124%, 131%, 139%, 147%
 	*zoom: 1;
 }
 
-.rapbr{
+%rapbr{
 	white-space: pre-line;
 	white-space: -pre-wrap;
 	white-space: -o-pre-wrap;
@@ -78,14 +78,21 @@ $fontSizeList: 62%, 70%, 77%, 85%, 93%, 100%, 108%, 116%, 124%, 131%, 139%, 147%
 	word-wrap: break-word;
 }
 
-.oneline{
+%oneline{
 	overflow: hidden;
 	white-space: nowrap;
 	text-overflow: ellipsis;
 }
 
-.notxt{
+%notxt{
 	overflow: hidden;
 	text-indent: 100%;
 	white-space: nowrap;
+}
+
+%pointer{
+	cursor: pointer;
+}
+%mincho{
+	font-family: $minchoFont;
 }

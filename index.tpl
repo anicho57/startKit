@@ -28,10 +28,12 @@
 
 {include file="_htparts/header.tpl"}
 
-<div id="main">
+<div id="contents">
+
+	<main role="main"></main>
 
 </div>
-<!-- /#main -->
+<!-- /#contents -->
 
 {include file="_htparts/footer.tpl"}
 

@@ -30,6 +30,9 @@ class SiteSetting{
 
   function get_path(){
     $reqUri = $_SERVER['REQUEST_URI'];
+    if ($_GET){
+      $reqUri = reset(explode('?', $reqUri));
+    }
     $basePath = $this->get_base_path();
     return str_replace($basePath,"",$reqUri);
   }

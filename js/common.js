@@ -1,7 +1,7 @@
 
 (function($) {
     $(function() {
-        $("a[href^=#]:not([href$=#])").click( function() {
+        $("a[href^=#]:not([href$=#])").on("click", function() {
            var speed = 800;
            var href= $( this).attr( "href");
            var target = $(href === "#" || href === "" ? 'html' : href);

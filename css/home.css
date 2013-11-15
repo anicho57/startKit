@@ -1,20 +1,8 @@
-.opacity { opacity: 0.75; -moz-opacity: 0.75; filter: alpha(opacity=75); -ms-filter: "alpha(opacity=75)"; }
-
-.limpidity { filter: alpha(opacity=0); opacity: 0; _visibility: hidden; }
-
-.anime { -webkit-transition: color .3s linear, background-color .3s linear, opacity .3s linear, border-color .3s linear; -moz-transition: color .3s linear, background-color .3s linear, opacity .3s linear, border-color .3s linear; -ms-transition: color .3s linear, background-color .3s linear, opacity .3s linear, border-color .3s linear; -o-transition: color .3s linear, background-color .3s linear, opacity .3s linear, border-color .3s linear; transition: color .3s linear, background-color .3s linear, opacity .3s linear, border-color .3s linear; }
-
 /* clearfix */
 .clearfix, .cf { *zoom: 1; }
 .clearfix:after, .cf:after { content: "."; visibility: hidden; clear: both; display: block; height: 0; line-height: 0; font-size: 0; }
 
 .inlineBlock, .ib { display: inline-block; *display: inline; *zoom: 1; }
-
-.rapbr { white-space: pre-line; white-space: -pre-wrap; white-space: -o-pre-wrap; white-space: -moz-pre-wrap; word-wrap: break-word; }
-
-.oneline { overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
-
-.notxt { overflow: hidden; text-indent: 100%; white-space: nowrap; }
 
 /*----------------------------------------------------
 	media query

@@ -1,27 +1,14 @@
 <?php
-
-define('HTDOCS', 'D:\xampp\htdocs\startkit/');
-// Smarty
-define('SMARTY_DIR', 'D:\xampp\libs\Smarty3\libs/');
-define('SMARTY_MYDIR', HTDOCS . '_libs/');
-
-
-require_once('MySmarty.class.php');
-
-
 class SiteSetting{
 
   function get_relative_path(){
-    $level = "";
     $kaisou = substr_count( $_SERVER['REQUEST_URI'], "/" ) - substr_count( $_SERVER['PHP_SELF'], "/" );
     if ($kaisou == 0){
-      $level = "./";
+      $topPath = "./";
     }else{
-      for ($i = 0; $i < $kaisou; $i++) {
-          $level .= "../";
-      }
+      $topPath = str_repeat('../',$kaisou);
     }
-    return $level;
+    return $topPath;
   }
 
   function get_base_path(){
@@ -31,7 +18,8 @@ class SiteSetting{
   function get_path(){
     $reqUri = $_SERVER['REQUEST_URI'];
     if ($_GET){
-      $reqUri = reset(explode('?', $reqUri));
+      $reqUri = explode('?', $reqUri);
+      $reqUri = reset($reqUri);
     }
     $basePath = $this->get_base_path();
     return str_replace($basePath,"",$reqUri);
@@ -39,7 +27,8 @@ class SiteSetting{
 
   function get_page_id(){
     $path = $this->get_path();
-    $pid = reset(explode('/', $path));
+    $path = explode('/',$path);
+    $pid = reset($path);
     if( $pid == "" || strstr($pid, '.') == '.html' ){
       return "home";
     }else{

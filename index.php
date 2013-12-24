@@ -1,13 +1,27 @@
 <?php
+namespace anicho\startkit;
 
-require_once('_libs/SiteSetting.class.php');
+define('ABSPATH', dirname(__FILE__) . '/' );
+
+require(ABSPATH . '_libs/SiteSetting.class.php');
+use \SiteSetting;
+
+// Samrty
+require("D:\\xampp\libs\Smarty3\libs\Smarty.class.php");
+use \Smarty;
+
+$smarty = new Smarty;
+$smarty->template_dir = array(ABSPATH);
+$smarty->compile_dir = ABSPATH . '_libs/templates_c/';
+$smarty->addPluginsDir(array(ABSPATH . '_libs/plugins/'));
 
 $setting = new SiteSetting;
-$smarty = new MySmarty;
 
+// topへのパス
 $smarty->assign("level", $setting->get_base_path());
-//$smarty->assign("level", $setting->get_relative_path());
+// $smarty->assign("level", $setting->get_relative_path());
 
+// Page Id = first directory name
 $smarty->assign("pid", $setting->get_page_id());
 
 $smartyPath = $setting->get_smarty_path();

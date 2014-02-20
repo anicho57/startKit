@@ -14,6 +14,13 @@
         $("a[href$='.pdf']").attr('target', '_blank').addClass('pdf');
         $("a[href$='.jpg'],a[href$='.gif'],a[href$='.png']").addClass('thickbox');
 
+        var label = $('label');
+        label.find(":checked").closest("label").addClass("checked");
+        label.click(function() {
+          label.filter(".checked").removeClass("checked");
+          label.find(":checked").closest(label).addClass("checked");
+        });
+
     });
 
 })(jQuery);

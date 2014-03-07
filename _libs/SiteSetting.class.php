@@ -12,7 +12,8 @@ class SiteSetting{
   }
 
   function get_base_path(){
-    return str_replace("index.php","",$_SERVER['PHP_SELF']);
+    $fileInfo = pathinfo($_SERVER['PHP_SELF']);
+    return $fileInfo['dirname'].'/';
   }
 
   function get_path(){

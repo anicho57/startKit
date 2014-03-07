@@ -4,7 +4,7 @@ RewriteEngine On
 RewriteBase /startkit/
 RewriteRule ^index\.php$ - [L]
 
-RewriteCond %{REQUEST_FILENAME} !(.*).(jpg|gif|png|ico|php|css|js|json|xml|eot|otf|svg|ttf|woff|pdf|doc|xls|swf|wmv|flv|mp3)$
+RewriteCond %{REQUEST_FILENAME} !(.*).(jpg|gif|png|ico|php|css|map|js|json|xml|eot|otf|svg|ttf|woff|pdf|doc|xls|swf|wmv|flv|mp3)$
 RewriteRule . index.php [L]
 
 # File css/js gzip Setting

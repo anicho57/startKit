@@ -10,7 +10,7 @@
 .sass-cache
 
 # Smarty
-#templates_c
+templates_c
 *.tpl.php
 
 # sublime Setting File

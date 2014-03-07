@@ -1,10 +1,10 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
 <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <meta http-equiv="content-script-type" content="text/javascript" />
+                <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+                <meta http-equiv="content-script-type" content="text/javascript" />
 
-        <title>Smarty→HTMLファイルの作成</title>
+                <title>Smarty→HTMLファイルの作成</title>
 
 </head>
 
@@ -22,126 +22,163 @@
  *
  * */
 
+define('ABSPATH', dirname(__FILE__) . '/' );
 
-$path = "./";
+require(ABSPATH . '_libs/SiteSetting.class.php');
 
+// Samrty
+require("D:\\xampp\libs\Smarty3\libs\Smarty.class.php");
+
+
+$smarty = new Smarty;
+$smarty->template_dir = array(ABSPATH);
+$smarty->compile_dir = ABSPATH . '_libs/templates_c/';
+$smarty->addPluginsDir(array(ABSPATH . '_libs/plugins/'));
+
+$setting = new SiteSetting;
+
+// topへのパス
+$smarty->assign("level", $setting->get_base_path());
+// $smarty->assign("level", $setting->get_relative_path());
+
+// Page Id = first directory name
+$smarty->assign("pid", $setting->get_page_id());
+
+
+$basePath = ABSPATH;;
 //指定パス以下のディレクトリ・ファイル取得
-$list = getdirlist( $path );//file[] dir[] に格納
-$target = gethtmlpath($list);
+$fileList = getFileList($basePath);//file[] dir[] に格納
+
+foreach ($fileList as $filePath) {
+    $fileInfo = pathinfo($filePath);
+    if( @$fileInfo['extension'] == "tpl" && !strstr($fileInfo['dirname'],'htparts') && $fileInfo['filename'] != "404" ){
+
+        $html = $smarty->fetch($filePath);
+
+        $outPutPath = $fileInfo['dirname'].'/'.$fileInfo['filename'].'.html';
+
+        $oldData = "";
+        if (file_exists("$outPutPath")){
+            $fd = fopen ("$outPutPath", "r");
+            while (!feof ($fd)) {
+                   $oldData .= fgets($fd, 4096);
+            }
+            fclose ($fd);
+        }
+        $link = str_replace($basePath,"",$outPutPath).'?view';
+        if($oldData == $html){
+            print_r('<p>'.$outPutPath.'に変更はあません。<a href="'.$link.'">link</a></p>');
+        }else{
+            buildPutFile($outPutPath,$html);
+            print_r('<p style="color:#c00;">'.$outPutPath.'を書き換えました。<a href="'.$link.'">link</a></p></p>');
+        }
+
+    }
+}
+// $target = gethtmlpath($fileList);
+
 
 print_r("<p>".date("Y/m/d g:i s")."</p>\n");
-
 echo "</body>\n";
 echo "</html>\n";
 
-function gethtmlpath($array,$level=NULL){
 
-  foreach( $array as $key => $arrs ){
-    if ($key == 'file'){
-      foreach ($arrs as $value){
-        if( end(explode('.', $value)) == "tpl" && !strstr($level,'htparts') && $value != "404.tpl" )/*htpartsのテキストが含まれるファイルは除く*/
-          dwrite($level. substr($value, 0, strrpos($value, '.')));
-      }
+function getFileList($directory,$depth = -1,$ignore = array(),$filter = array()) {
+    if ($depth == 0){
+        return array();
     }
-    if($key == 'dir'){
-      foreach( $arrs as $k => $arr){
-        $dirname = $level.$k."/";
-        gethtmlpath($arr,$dirname);
-      }
-    }
-  }
 
+    $directory = rtrim($directory,'\\/');
+
+    $tmp = array();
+
+    if (class_exists('FilesystemIterator',false)){
+        $iterator = new RecursiveDirectoryiterator($directory,FilesystemIterator::SKIP_DOTS);
+    }else{
+        $iterator = new RecursiveDirectoryiterator($directory);
+    }
+
+    foreach ($iterator as $path){
+        $filename = $path->getBasename();
+        foreach ((array)$ignore as $ival){
+            if (fnmatch($ival,$filename)){
+                continue 2;
+            }
+        }
+
+        if ($path->isDir()){
+            if ($depth > 0){
+                $depth--;
+            }
+            foreach (getFileList($directory.'/'.$filename,$depth,$ignore,$filter) as $ppath){
+                $tmp[] = $ppath;
+            }
+        }else{
+            if ($filter){
+                $hit = false;
+                foreach ((array)$filter as $fval){
+                    if (fnmatch($fval,$filename)){
+                        $hit = true;
+                        break;
+                    }
+                }
+                if (!$hit){
+                    continue;
+                }
+            }
+            $tmp[] = $directory.'/'.$filename;
+        }
+    }
+
+    return $tmp;
 }
 
+function buildPutFile($filepath,$content,$hook_func = ''){
+   buildMakeDir(dirname($filepath),$hook_func);
 
-function dwrite($target){
-
-
-        require_once('_libs/SiteSetting.class.php');
-        $smarty = new MySmarty;
-
-        $kazu = substr_count( $target, "/" );
-        $level = "";
-        if ($kazu == 0){
-                $level = "./";
-        }else{
-                for ($i = 0; $i <= $kazu-1; $i++) {
-                    $level .= "../";
-                }
-        }
-        //print_r($level);
-        $smarty->assign("level", $level);
-
-        $basePath = str_replace("html.php","",$_SERVER['PHP_SELF']);
-        $path = str_replace($basePath,"",$target);
-
-        $pid = reset(explode('/', $path));
-        if( $pid == "index" ) $pid = "home";
-        $smarty->assign("pid", $pid);
-
-        $html = $smarty->fetch("$target.tpl");
-
-
-        $filepath = "$target.html";
-        $data = "";
-        if (file_exists("$filepath")){
-           $fd = fopen ("$filepath", "r");
-           while (!feof ($fd)) {
-              $data .= fgets($fd, 4096);
-           }
-           fclose ($fd);
-        }else{
-                //ディレクトリパスを取得
-                $dir = substr($filepath, 0, mb_strrpos($filepath,'/'));//最後の"/"位置までで
-//              var_dump($dir);
-                if(!file_exists($dir) && $dir !== ""){
-
-                        if(mkdir($dir , 0707,true)){
-                          chmod($dir, 0707);//umask 0002のためパーミション再設定
-                        }else{
-                          print_r("<p style='color:#c00;'>$dir ディレクトリ作成失敗</p>");
-                        }
-                }
-
-                touch($filepath);
-                chmod( $filepath, 0646 );
+    if ($fp =buildFileOpen($filepath)){
+        flock($fp,LOCK_EX);
+        ftruncate($fp,0);
+        fputs($fp,$content);
+        flock($fp,LOCK_UN);
+        fclose($fp);
+        if ($hook_func){
+            call_user_func($hook_func,'make_file',$filepath);
         }
 
-        if($data == $html){
-                print_r("<p>./$target.htmlに変更はあません。</p>");
-        }else{
-                $fp = fopen($filepath, "w");
-                @fwrite( $fp, $html, strlen($html) );
-                fclose($fp);
-                print_r("<p style='color:#c00;'>./$target.htmlを書き換えました。</p>");
-        }
-
-}return true;
-
-
-function getdirlist($dirpath='' , $flag = true ){
-
- if ( strcmp($dirpath,'')==0 ) die('dir name is undefind.');
-
-  $file_list = array();
-  $dir_list = array();
-
-  if( ($dir = @opendir($dirpath) ) == FALSE ) {
-   die( "dir {$dirpath} not found.");
-  }
-
-  while ( ($file=readdir( $dir )) !== FALSE ){
-   if ( is_dir( "$dirpath/$file" ) ){
-    if( strpos( $file ,'.' ) !== 0 ){
-     $dir_list["$file"] = getdirlist( "$dirpath/$file" , $flag );
+        return true;
     }
-   }else {
-    if( $flag ){
-     array_push($file_list, $file);
-    }else{
-     if( strpos( $file , '.' )!==0 ) array_push( $file_list , $file);
+
+    return false;
+}
+
+function buildMakeDir($filepath,$hook_func = ''){
+    if (strpos($filepath,'\\') !== false){
+        $filepath = str_replace('\\','/',$filepath);
     }
-   }
-  }
- return array( "file"=>$file_list , "dir"=>$dir_list);
+    $filepath = rtrim($filepath,'\\/').'/';
+    if (!is_dir($filepath)){
+        //再帰的に呼び出す　一つ上のパスがディレクトリで存在しているか確認
+        if ($parent_path = dirname($filepath)){
+           buildMakeDir($parent_path,$hook_func);
+        }
+        if (@mkdir($filepath)){
+            if ($hook_func){
+                call_user_func($hook_func,'make_dir',$filepath);
+            }
+            chmod($filepath,0755);
+        }else{
+            return false;
+        }
+    }
+}
+
+function buildFileOpen($filepath,$mode = 'w',$hook_func = ''){
+   buildMakeDir(dirname($filepath),$hook_func);
+
+    if (!is_dir($filepath)){
+        return fopen($filepath,$mode);
+    }
+
+    return false;
 }

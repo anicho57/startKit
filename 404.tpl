@@ -11,18 +11,23 @@
 
 </head>
 <body id="{$pid}">
-<div id="wrap">
+<div id="page">
 
 {include file="_htparts/header.tpl"}
 
+<div id="contents">
 
-<p>404 Not Found</p>
+	<main id="main" role="main">
+		<h1>404 Not Found</h1>
+	</main>
 
+</div>
+<!-- #contents -->
 
 {include file="_htparts/footer.tpl"}
 
 </div>
-<!-- /#wrap -->
+<!-- /#page -->
 {include file="_htparts/footRead.tpl"}
 </body>
 </html>

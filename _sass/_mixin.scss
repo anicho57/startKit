@@ -26,6 +26,12 @@ $fontSizeList: 62%, 70%, 77%, 85%, 93%, 100%, 108%, 116%, 124%, 131%, 139%, 147%
 				 0 (-$size) 0 $color;
 }
 
+@mixin transition($propaty:all, $duration:.3s, $timing:ease-in-out){
+	@each $prefix in $set_prefix {
+		#{$prefix}transition: $propaty $duration $timing;
+	}
+}
+
 // 簡易ロールオーバー
 %opacity {
 	opacity: $opacity_value;
@@ -39,6 +45,7 @@ $fontSizeList: 62%, 70%, 77%, 85%, 93%, 100%, 108%, 116%, 124%, 131%, 139%, 147%
 	opacity: 0;
 	_visibility: hidden;
 }
+
 
 %anime{
   @each $prefix in $set_prefix {

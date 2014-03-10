@@ -24,13 +24,13 @@
 
 </head>
 <body id="{$pid}">
-<div id="wrap">
+<div id="page">
 
 {include file="_htparts/header.tpl"}
 
 <div id="contents">
 
-	<main role="main"></main>
+	<main id="main" role="main"></main>
 
 </div>
 <!-- /#contents -->
@@ -38,7 +38,7 @@
 {include file="_htparts/footer.tpl"}
 
 </div>
-<!-- /#wrap -->
+<!-- /#page -->
 {include file="_htparts/footRead.tpl"}
 </body>
 </html>

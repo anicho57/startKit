@@ -29,11 +29,8 @@ input,select,option,textarea{
 
 // リンク
 a , a *{
-	@each $prefix in $set_prefix {
-		#{$prefix}transition: color .3s linear,
-							  background-color .3s linear,
-							  border-color .3s linear;
-	}
+	@include transition(color);
+	@include transition(background-color);
 }
 a{
 	&:link {

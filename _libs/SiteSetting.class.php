@@ -1,8 +1,9 @@
 <?php
 class SiteSetting{
 
-  function get_relative_path(){
-    $kaisou = substr_count( $_SERVER['REQUEST_URI'], "/" ) - substr_count( $_SERVER['PHP_SELF'], "/" );
+  function get_relative_path($path = null){
+    if (is_null($path)) $path = $this->get_path();
+    $kaisou = substr_count( $path, "/" );
     if ($kaisou == 0){
       $topPath = "./";
     }else{
@@ -26,11 +27,11 @@ class SiteSetting{
     return str_replace($basePath,"",$reqUri);
   }
 
-  function get_page_id(){
-    $path = $this->get_path();
+  function get_page_id($path = null){
+    if (is_null($path)) $path = $this->get_path();
     $path = explode('/',$path);
     $pid = reset($path);
-    if( $pid == "" || strstr($pid, '.') == '.html' ){
+    if( $pid == "" || in_array(strstr($pid, '.'),array('.html','.tpl')) ){
       return "home";
     }else{
       return $pid;

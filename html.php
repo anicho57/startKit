@@ -39,11 +39,6 @@ $setting = new SiteSetting;
 
 // topへのパス
 $smarty->assign("level", $setting->get_base_path());
-// $smarty->assign("level", $setting->get_relative_path());
-
-// Page Id = first directory name
-$smarty->assign("pid", $setting->get_page_id());
-
 
 $basePath = ABSPATH;;
 //指定パス以下のディレクトリ・ファイル取得
@@ -52,6 +47,13 @@ $fileList = getFileList($basePath);//file[] dir[] に格納
 foreach ($fileList as $filePath) {
     $fileInfo = pathinfo($filePath);
     if( @$fileInfo['extension'] == "tpl" && !strstr($fileInfo['dirname'],'htparts') && $fileInfo['filename'] != "404" ){
+
+        // Page Id = first directory name
+        $pid = $setting->get_page_id(str_replace($basePath,"",$filePath));
+        $smarty->assign("pid", $pid);
+
+        // if level = relative_path
+        // $smarty->assign("level", $setting->get_relative_path(str_replace($basePath,"",$filePath)));
 
         $html = $smarty->fetch($filePath);
 

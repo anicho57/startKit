@@ -1,5 +1,5 @@
 <div id="header">
-	<header id="header">
+	<header>
 
 		<div id="logo" role="banner">
 			{if $pid == "home"}<h1><img src="{$level}images/common/logo.png" alt="" /></h1>

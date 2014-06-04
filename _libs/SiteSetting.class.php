@@ -24,7 +24,7 @@ class SiteSetting{
       $reqUri = reset($reqUri);
     }
     $basePath = $this->get_base_path();
-    return str_replace($basePath,"",$reqUri);
+    return substr($reqUri,strlen($basePath),strlen($reqUri));
   }
 
   function get_page_id($path = null){

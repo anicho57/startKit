@@ -30,7 +30,17 @@
 
 <div id="contents">
 
-	<main id="main" role="main"></main>
+	<div id="mainContent">
+		<main role="main">
+
+		</main>
+	</div>
+	<!-- /#mainContent -->
+
+	<div id="secondContent">
+
+	</div>
+	<!-- /#secondContent -->
 
 </div>
 <!-- /#contents -->

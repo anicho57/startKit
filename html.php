@@ -53,7 +53,7 @@ foreach ($fileList as $filePath) {
         $smarty->assign("pid", $pid);
 
         // if level = relative_path
-        // $smarty->assign("level", $setting->get_relative_path(str_replace($basePath,"",$filePath)));
+        $smarty->assign("level", $setting->get_relative_path(str_replace($basePath,"",$filePath)));
 
         $html = $smarty->fetch($filePath);
 

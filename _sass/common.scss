@@ -4,16 +4,16 @@
 // ===================================================================
 
 // 設定用
-@import "setting";
+@import "inc/setting";
 
 // リセットCSS、フォントサイズ
-@import "reset";
+@import "inc/reset";
 
 // ミックスイン、@extend、CSS3など
-@import "mixin";
+@import "inc/mixin";
 
-// メインスタイル - layout.scssはメイン内でインポート
+// メインスタイル
 @import "main";
 
 // 印刷用スタイル
-@import "print";
+// @import "inc/print";

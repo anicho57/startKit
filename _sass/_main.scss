@@ -29,37 +29,41 @@ input,select,option,textarea{
 
 // リンク
 a , a *{
-	@include transition(color);
-	@include transition(background-color);
+	@each $prefix in $set_prefix {
+		#{$prefix}transition-property: color, border-color, background-color, opacity;
+		#{$prefix}transition-duration: .3s;
+		#{$prefix}transition-timing-function: ease-in-out;
+	}
 }
 a{
+	color: $mainColor;
 	&:link {
-		color: #36c;
+		color: $mainColor;
 		text-decoration: none;
 	}
 	&:visited {
-		color: #39f;
+		color: lighten($mainColor, 10%);
 	}
 	&:hover {
-		text-decoration: none;
-		color: #f90;
+		color: lighten($mainColor, 5%);
+		text-decoration: underline;
 	}
 	&:active {
-		color: #f90;
+		color: #d00;
 	}
 }
 
 
 ::-moz-selection{  //firefox
-	background-color: lighten($accentColor, 10%);
+	background-color: $mainColor;
 	color: #fff;
 }
 ::selection { // css3
-	background-color: lighten($accentColor, 10%);
+	background-color: $mainColor;
 	color: #fff;
 }
 
-@import "component";
+@import "inc/component";
 
 @import "all";
 

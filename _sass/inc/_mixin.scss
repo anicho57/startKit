@@ -56,8 +56,8 @@ $fontSizeList: 62%, 70%, 77%, 85%, 93%, 100%, 108%, 116%, 124%, 131%, 139%, 147%
   }
 }
 
-/* clearfix */
-.clearfix,.cf {
+ // clearfix
+%clearfix,%cf {
 	*zoom: 1;
 	&:after {
 		content: ".";
@@ -71,7 +71,7 @@ $fontSizeList: 62%, 70%, 77%, 85%, 93%, 100%, 108%, 116%, 124%, 131%, 139%, 147%
 }
 
 // inline-block
-.inlineBlock,.ib {
+%inlineBlock,%ib {
 	display: inline-block;
 	*display: inline;
 	*zoom: 1;

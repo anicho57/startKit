@@ -125,7 +125,7 @@ a[href$=".bmp"] img {
 	a.btn01,a.btn02,a.btn03{
 		padding: .5em 1em .4em;
 		text-decoration: none !important;
-		@extend .inlineBlock;
+		@extend %inlineBlock;
 	}
 	input.btn01,input.btn02,input.btn03{
 		padding: .3em .8em .2em;

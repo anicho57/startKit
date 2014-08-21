@@ -12,7 +12,7 @@
 	#header
 ----------------------------------------------------*/
 #header{
-	@extend .cf;
+	@extend %clearfix;
 }
 
 
@@ -26,7 +26,7 @@
 	#contents
 ----------------------------------------------------*/
 #contents {
-	@extend .cf;
+	@extend %clearfix;
 }
 
 
@@ -41,7 +41,7 @@
 	#footer
 ----------------------------------------------------*/
 #footer{
-	@extend .cf;
+	@extend %clearfix;
 }
 
 #copyright{

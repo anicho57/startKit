@@ -3,7 +3,7 @@
 
 		<div id="logo" role="banner">
 			{if $pid == "home"}<h1><img src="{$level}images/common/logo.png" alt="" /></h1>
-			{else}<p><img src="{$level}images/common/logo.png" alt="" /></p>
+			{else}<p><a href="{$level}"><img src="{$level}images/common/logo.png" alt="" /></a></p>
 			{/if}
 		</div>
 

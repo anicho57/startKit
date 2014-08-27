@@ -3,9 +3,9 @@ class SiteSetting{
 
   function get_relative_path($path = null){
     if (is_null($path)) $path = $this->get_path();
-    $kaisou = substr_count( $path, "/" );
+    $kaisou = substr_count( $path, '/' );
     if ($kaisou == 0){
-      $topPath = "./";
+      $topPath = './';
     }else{
       $topPath = str_repeat('../',$kaisou);
     }
@@ -31,8 +31,8 @@ class SiteSetting{
     if (is_null($path)) $path = $this->get_path();
     $path = explode('/',$path);
     $pid = reset($path);
-    if( $pid == "" || in_array(strstr($pid, '.'),array('.html','.tpl')) ){
-      return "home";
+    if( $pid == '' || in_array(strstr($pid, '.'),array('.html','.tpl')) ){
+      return 'home';
     }else{
       return $pid;
     }
@@ -43,8 +43,8 @@ class SiteSetting{
     $buff = explode('/', $path);
     array_pop($buff);
     $dir = end($buff);
-    if( $dir == "" ){
-      return "";
+    if( $dir == '' ){
+      return '';
     }else{
       return $dir;
     }
@@ -54,9 +54,9 @@ class SiteSetting{
     $path = $this->get_path();
 
     if (strstr($path,'.html') == true){
-        return str_replace('.html',"",$path);
+        return str_replace('.html','',$path);
     }else if (strstr($path,'.') == false){
-        return $path . "index";
+        return $path . 'index';
     }else{
         return $path;
     }
@@ -65,7 +65,7 @@ class SiteSetting{
   function get_html_path(){
     $path = $this->get_path();
     if (strstr($path,'.') == false){
-        return $path . "index.html";
+        return $path . 'index.html';
     }else{
         return $path;
     }

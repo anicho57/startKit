@@ -5,7 +5,7 @@
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
 
-	<title>siteTitle</title>
+	<title>site-title</title>
 
 	<meta name="description" content="" />
 	<meta name="keywords" content="" />
@@ -16,39 +16,39 @@
 	<meta property="og:url" content="" />
 	<meta property="og:image" content="" />
 
-{include file="_htparts/headRead.tpl"}
+{include file="_htparts/head-read.tpl"}
 	<link href="{$level}css/{$pid}.css" rel="stylesheet" />
 
 	<link href="favicon.ico" sizes="16x16" rel="shortcut icon" type="image/vnd.microsoft.icon" />
-	<link href="" rel="apple-touch-icon-precomposed" />
+	<link href="images/common/logo.png" rel="apple-touch-icon-precomposed" />
 
 </head>
-<body id="{$pid}">
+<body id="{$pid}-page">
 <div id="page">
 
 {include file="_htparts/header.tpl"}
 
-<div id="contents">
+<div id="page-content">
 
-	<div id="mainContent">
+	<div id="content-main">
 		<main role="main">
 
 		</main>
 	</div>
-	<!-- /#mainContent -->
+	<!-- /#content-main -->
 
-	<div id="secondContent">
+	<div id="content-sub">
 
 	</div>
-	<!-- /#secondContent -->
+	<!-- /#content-sub -->
 
 </div>
-<!-- /#contents -->
+<!-- /#page-content -->
 
 {include file="_htparts/footer.tpl"}
 
 </div>
 <!-- /#page -->
-{include file="_htparts/footRead.tpl"}
+{include file="_htparts/foot-read.tpl"}
 </body>
 </html>

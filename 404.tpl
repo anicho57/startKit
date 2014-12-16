@@ -7,7 +7,7 @@
 
 	<title>404 Not Found</title>
 
-{include file="_htparts/headRead.tpl"}
+{include file="_htparts/head-read.tpl"}
 
 </head>
 <body id="{$pid}">
@@ -15,19 +15,24 @@
 
 {include file="_htparts/header.tpl"}
 
-<div id="contents">
+<div id="page-content">
 
-	<main id="main" role="main">
-		<h1>404 Not Found</h1>
-	</main>
+	<div id="content-main">
+		<main role="main">
+
+			<h1>404 Not Found</h1>
+
+		</main>
+	</div>
+	<!-- /#content-main -->
 
 </div>
-<!-- #contents -->
+<!-- /#page-content -->
 
 {include file="_htparts/footer.tpl"}
 
 </div>
 <!-- /#page -->
-{include file="_htparts/footRead.tpl"}
+{include file="_htparts/foot-read.tpl"}
 </body>
 </html>

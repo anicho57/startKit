@@ -20,7 +20,7 @@ body{
 		&:checked + #page{
 			transform: translate(-240px,0);
 			-webkit-transform: translate(-240px,0);
-			#spMenu{
+			#mobile-menu-btn{
 				&:after{
 					content: '';
 					position: absolute;

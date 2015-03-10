@@ -67,6 +67,20 @@ $lineColor: #666;
 // ベーステキストカラー
 $fontColor: #333;
 
+/* Main Color */
+$color-main: rgba($mainColor, 1) ;
+$color-main-blight: lighten($color-main, 12.5%) ;
+$color-main-strong: desaturate($color-main, 25%) ;
+$color-main-deep: darken($color-main, 12.5%) ;
+$color-main-light: lighten($color-main, 25%) ;
+$color-main-soft: desaturate(lighten($color-main, 12.5%), 50%) ;
+$color-main-dull: desaturate(darken($color-main, 12.5%), 50%) ;
+$color-main-dark: darken($color-main, 25%) ;
+$color-main-pale: lighten($color-main, 37.5%) ;
+$color-main-lgrayish: desaturate(lighten($color-main, 12.5%), 75%) ;
+$color-main-grayish: desaturate(darken($color-main, 12.5%), 75%) ;
+$color-main-dgrayish: darken($color-main, 37.5%) ;
+
 
 // 付与するベンダープレフィックス
 $set_prefix: -webkit-, -moz-, -ms-, -o-, '';

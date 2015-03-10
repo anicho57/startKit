@@ -32,6 +32,14 @@ $fontSizeList: 62%, 70%, 77%, 85%, 93%, 100%, 108%, 116%, 124%, 131%, 139%, 147%
 	}
 }
 
+@function usuku($color,$p:10%) {
+	@return desaturate(lighten($color, $p), $p+10) ;
+}
+
+@function koku($color,$p:10%) {
+	@return desaturate(darken($color, $p), $p) ;
+}
+
 // 簡易ロールオーバー
 %opacity {
 	opacity: $opacity_value;

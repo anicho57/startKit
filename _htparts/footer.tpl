@@ -6,3 +6,5 @@
 	</footer>
 </div>
 <!-- /#footer -->
+</div>
+<!-- /#page -->

@@ -12,7 +12,7 @@ body{
 	}
 }
 // 判定checkbox
-#is-mobile-checkbox{
+#is-sp-checkbox{
 	@if $type == "all"{
 		display: none;
 	}
@@ -20,7 +20,7 @@ body{
 		&:checked + #page{
 			transform: translate(-240px,0);
 			-webkit-transform: translate(-240px,0);
-			#mobile-menu-btn{
+			#btn-sp-menu{
 				&:after{
 					content: '';
 					position: absolute;
@@ -34,14 +34,11 @@ body{
 					content: '\f00d';
 				}
 			}
-			#gNav ul{
-				display: none;
-			}
 		}
 	}
 }
 // メニューボタン（ボタン）
-#mobile-menu-btn{
+#btn-sp-menu{
 	@if $type == "all"{
 		display: none;
 	}

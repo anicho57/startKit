@@ -24,7 +24,6 @@
 
 </head>
 <body id="{$pid}-page">
-<div id="page">
 
 {include file="_htparts/header.tpl"}
 
@@ -47,8 +46,6 @@
 
 {include file="_htparts/footer.tpl"}
 
-</div>
-<!-- /#page -->
 {include file="_htparts/foot-read.tpl"}
 </body>
 </html>

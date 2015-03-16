@@ -1,3 +1,5 @@
+<input type="checkbox" id="is-sp-checkbox" />
+<div id="page">
 <div id="page-head">
 	<header>
 
@@ -7,6 +9,7 @@
 			{/if}
 		</div>
 
+		<label id="btn-sp-menu" for="is-sp-checkbox"><i class="icon-menu"></i></label>
 		<nav id="nav-main" role="navigation">
 			<ul>
 				<li></li>

@@ -1,5 +1,21 @@
 @charset "utf-8";
 
+// box sizing
+@if $use_box_sizing {
+	* {
+		box-sizing: border-box;
+		&:after,&:before{
+			box-sizing: border-box;
+		}
+	}
+}
+
+// image max-widht
+@if $img_max_widthg {
+	img {
+		max-width: 100%;
+	}
+}
 
 .imgHover img:hover {
 	@extend %opacity;
@@ -37,32 +53,32 @@ a[href$=".bmp"] img {
 
 // float: right
 .fr,
-.imgR {
+.img-r {
 	float: right;
 	margin-left: 10px;
 }
 
 // float: left
 .fl,
-.imgL {
+.img-l {
 	float: left;
 	margin-right: 10px;
 }
 
 // text-align: center
-.imgC,
-.tC{ text-align: center; }
+.img-c,
+.t-c{ text-align: center; }
 
 // img Centering
-.imgC {
+.img-c {
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
 }
 // text-align: right
-.tL{ text-align: left !important;}
+.t-l{ text-align: left !important;}
 // text-align: right
-.tR{ text-align: right !important;}
+.t-r{ text-align: right !important;}
 
 .clr{ clear: both;}
 

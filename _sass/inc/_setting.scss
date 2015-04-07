@@ -19,6 +19,11 @@ $use_spacing_classes: true;
 // 固定幅用のクラスを使用するか
 $use_box_width: true;
 
+// box-sizing: border-boxを全体に設定するか
+$use_box_sizing: false;
+
+// img要素にmax-widht: 100%を設定するか
+$img_max_widthg: false;
 
 // 簡易ロールオーバーの値
 $opacity_value: .75;
@@ -30,6 +35,7 @@ $imagePath: "../images/";
 
 // ベースフォント
 $baseFont: "メイリオ", "Meiryo", verdana, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", Osaka, "ＭＳ Ｐゴシック", "MS PGothic", Sans-Serif;
+// $baseFont: Helvetica-Light, 'Helvetica Light', Helvetica, YuGothic, "Yu Gothic", "游ゴシック", "ヒラギノ角ゴ Pro", "Hiragino Kaku Gothic Pro", Meiryo, "メイリオ", "MS PGothic", "ＭＳ Ｐゴシック", sans-serif;
 // $baseFont: 'Segoe UI Light', 'Segoe UI', Helvetica-Light, 'Helvetica Light', Helvetica, YuGothic, "Yu Gothic", "游ゴシック", "ヒラギノ角ゴ Pro", "Hiragino Kaku Gothic Pro", Meiryo, "メイリオ", "MS PGothic", "ＭＳ Ｐゴシック", sans-serif;
 $baseFontIe: "ＭＳ Ｐゴシック", "MS PGothic", Sans-Serif;
 

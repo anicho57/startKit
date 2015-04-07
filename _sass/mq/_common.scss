@@ -8,7 +8,8 @@ body{
 		position: relative;
 	}
 	@if $type == "sp" or $type == "tab"{
-		@include transition(transform);
+		@include transition(left);
+		// @include transition(transform);
 	}
 }
 // 判定checkbox
@@ -18,8 +19,9 @@ body{
 	}
 	@if $type == "sp" or $type == "tab"{
 		&:checked + #page{
-			transform: translate(-240px,0);
-			-webkit-transform: translate(-240px,0);
+			left: -240px;
+			// transform: translate(-240px,0);
+			// -webkit-transform: translate(-240px,0);
 			#btn-sp-menu{
 				&:after{
 					content: '';
@@ -31,7 +33,7 @@ body{
 					height: 100%;
 				}
 				i:before{
-					content: '\f00d';
+					content: '\e601';
 				}
 			}
 		}

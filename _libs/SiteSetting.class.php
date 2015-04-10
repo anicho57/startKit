@@ -29,8 +29,8 @@ class SiteSetting{
    * インストールディレクトリへの相対パスを取得
    * @return [string] トップディレクトリへの相対パス
    */
-  function get_relative_path(){
-    $path = $this->get_path();
+  function get_relative_path($path = null){
+    if (is_null($path)) $path = $this->get_path();
     $kaisou = substr_count( $path, '/' );
     return ($kaisou == 0) ? './' : str_repeat('../',$kaisou);
   }

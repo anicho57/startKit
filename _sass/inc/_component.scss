@@ -82,6 +82,22 @@ a[href$=".bmp"] img {
 
 .clr{ clear: both;}
 
+strong{
+	font-weight: bold;
+}
+em{
+	font-weight: bold;
+	color: #c00;
+	font-style: normal;
+}
+sup{
+	font-size: .5em;
+	vertical-align: top;
+}
+sub{
+	font-size: .5em;
+	vertical-align: bottom;
+}
 
 .description{
 	font-size: fz(12);

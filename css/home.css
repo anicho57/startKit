@@ -1,9 +1,4 @@
-/* clearfix */
-.clearfix, .cf { *zoom: 1; }
-.clearfix:after, .cf:after { content: "."; visibility: hidden; clear: both; display: block; height: 0; line-height: 0; font-size: 0; }
-
-.inlineBlock, .ib { display: inline-block; *display: inline; *zoom: 1; }
-
+/* Main Color */
 /*----------------------------------------------------
 	media query
 ----------------------------------------------------*/
@@ -14,4 +9,4 @@
 /* pc
 -------------------------------------------------- */
 
-/*@ sourceMappingURL=home.css.map */
+/*# sourceMappingURL=home.css.map */

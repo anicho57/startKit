@@ -1,6 +1,7 @@
 {
-"version": "3",
-"mappings": ";AAoDA,cAAc,GACb,KAAK,EAAE,CAAC;AACR,0BAAQ,GACP,OAAO,EAAE,GAAG,EACZ,UAAU,EAAE,MAAM,EAClB,KAAK,EAAE,IAAI,EACX,OAAO,EAAE,KAAK,EACd,MAAM,EAAE,CAAC,EACT,WAAW,EAAE,CAAC,EACd,SAAS,EAAE,CAAC;;AAKd,iBAAiB,GAChB,OAAO,EAAE,YAAY,EACrB,QAAQ,EAAE,MAAM,EAChB,KAAK,EAAE,CAAC",
-"sources": ["../_sass/_mixin.scss"],
+"version": 3,
+"mappings": "",
+"sources": [],
+"names": [],
 "file": "home.css"
 }

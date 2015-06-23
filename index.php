@@ -31,6 +31,10 @@ if ($smartyPath == "contacts/index"){
     // tpl -> html -> 404
     if(file_exists($smarty->template_dir[0] . "$smartyPath.tpl") && !strstr($smartyPath,'_htparts')){
       $ext = (array_key_exists('view',$_GET)) ? 'html' : 'tpl';
+      if ($ext == 'html'){
+        $smarty->left_delimiter = '<!--{';
+        $smarty->right_delimiter = '}-->';
+      }
       $smarty->display("$smartyPath.$ext");
     }else if(file_exists($smarty->template_dir[0] . $setting->get_html_path()) && substr(strrchr($setting->get_html_path(), '.'), 1) == "html"){ // html output
       echo file_get_contents($smarty->template_dir[0] . $setting->get_html_path());

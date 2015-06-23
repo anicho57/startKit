@@ -41,9 +41,12 @@ class SiteSetting{
    */
   function get_page_id(){
     $path = $this->get_path();
-    $first_dir = 'home';
+    $first_dir = 'top';
     if( preg_match('/[^\/]+/', $path, $m)){
       $first_dir = $m[0];
+    }
+    if( strpos($first_dir,'.')){
+      $first_dir = 'top';
     }
     return $first_dir;
   }

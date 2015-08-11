@@ -3,7 +3,8 @@
 // 設定
 // ===================================================================
 
-@import "compass/css3";
+// @import "compass/css3";
+
 $experimental-support-for-svg: true;
 
 // HTML5の場合は値を「false」から「true」にする
@@ -29,65 +30,37 @@ $img_max_widthg: false;
 $opacity_value: .75;
 
 
-// 画像のパス
-$imagePath: "../images/";
-
-
 // ベースフォント
-$baseFont: "メイリオ", "Meiryo", verdana, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", Osaka, "ＭＳ Ｐゴシック", "MS PGothic", Sans-Serif;
+$base_font: "メイリオ", "Meiryo", verdana, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", Osaka, "ＭＳ Ｐゴシック", "MS PGothic", Sans-Serif;
 // $baseFont: Helvetica-Light, 'Helvetica Light', Helvetica, YuGothic, "Yu Gothic", "游ゴシック", "ヒラギノ角ゴ Pro", "Hiragino Kaku Gothic Pro", Meiryo, "メイリオ", "MS PGothic", "ＭＳ Ｐゴシック", sans-serif;
 // $baseFont: 'Segoe UI Light', 'Segoe UI', Helvetica-Light, 'Helvetica Light', Helvetica, YuGothic, "Yu Gothic", "游ゴシック", "ヒラギノ角ゴ Pro", "Hiragino Kaku Gothic Pro", Meiryo, "メイリオ", "MS PGothic", "ＭＳ Ｐゴシック", sans-serif;
-$baseFontIe: "ＭＳ Ｐゴシック", "MS PGothic", Sans-Serif;
+$base_font_ie: "ＭＳ Ｐゴシック", "MS PGothic", Sans-Serif;
 
 // 明朝
-$minchoFont: YuMincho, "Yu Mincho", "游明朝体", "Hiragino Mincho Pro", "ヒラギノ明朝 Pro", "MS PMincho", "ＭＳ Ｐ明朝", serif;
+$font_mincho: YuMincho, "Yu Mincho", "游明朝体", "Hiragino Mincho Pro", "ヒラギノ明朝 Pro", "MS PMincho", "ＭＳ Ｐ明朝", serif;
 
 // sprite image setting
 // $icon: sprite-map("icons/*.png", $spacing: 40px, $layout: vertical);
 
 // ページ全体の横幅
-$innerWidth: 960px;
+$inner_width: 960px;
 
 // メディアクエリの幅設定
-$mqPcWidth: 980px;
-$mqTabWidth: 590px;
-
-
-// 要素のベースマージン
-$bm: 15px;
-
+$mq_pc_width: 960px;
+$mq_tab_width: 590px;
 
 // ベースカラー
-$baceColor: #fff;
+$color_bg: #fff;
 
 // メインカラー（ベースカラー）
-$mainColor: #67c3b4;
+$color_main: #67c3b4;
 
 // アクセントカラー
-$accentColor: #cc3e55;
+$color_accent: #cc3e55;
 
 // ラインカラー
-$lineColor: #666;
-
+$color_line: #666;
 
 // ベーステキストカラー
-$fontColor: #333;
-
-/* Main Color */
-$color-main: rgba($mainColor, 1) ;
-$color-main-blight: lighten($color-main, 12.5%) ;
-$color-main-strong: desaturate($color-main, 25%) ;
-$color-main-deep: darken($color-main, 12.5%) ;
-$color-main-light: lighten($color-main, 25%) ;
-$color-main-soft: desaturate(lighten($color-main, 12.5%), 50%) ;
-$color-main-dull: desaturate(darken($color-main, 12.5%), 50%) ;
-$color-main-dark: darken($color-main, 25%) ;
-$color-main-pale: lighten($color-main, 37.5%) ;
-$color-main-lgrayish: desaturate(lighten($color-main, 12.5%), 75%) ;
-$color-main-grayish: desaturate(darken($color-main, 12.5%), 75%) ;
-$color-main-dgrayish: darken($color-main, 37.5%) ;
-
-
-// 付与するベンダープレフィックス
-$set_prefix: -webkit-, -moz-, -ms-, -o-, '';
+$color_font: #333;
 

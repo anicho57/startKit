@@ -8,48 +8,46 @@
 	element style
 ----------------------------------------------------*/
 html{
-	-ms-text-size-adjust: 100%;
-	-webkit-text-size-adjust: 100%;
+	text-size-adjust: 100%;
 }
 body {
-	color: $fontColor;
-	font-family: $baseFont;
+	color: $color_font;
+	font-family: $base_font;
 	letter-spacing: 1px;
 	line-height: 1.4;
 }
 
 input,select,option,textarea{
-	font-family: $baseFont;
+	font-family: $base_font;
 }
 
 
 // for IE6
 * html {
 	body,input,select,option,textarea {
-		font-family: $baseFontIe;
+		font-family: $base_font_ie;
 	}
 }
 
 
 // リンク
 a , a *{
-	@each $prefix in $set_prefix {
-		#{$prefix}transition-property: color, border-color, background-color, opacity;
-		#{$prefix}transition-duration: .3s;
-		#{$prefix}transition-timing-function: ease-in-out;
-	}
+	transition-property: color, border-color, background-color, opacity;
+	transition-duration: .3s;
+	transition-timing-function: ease-in-out;
 }
 a{
-	color: $mainColor;
+	$color_link: $color_main;
+	color: $color_link;
 	&:link {
-		color: $mainColor;
+		color: $color_link;
 		text-decoration: none;
 	}
 	&:visited {
-		color: lighten($mainColor, 10%);
+		color: lighten($color_link, 10%);
 	}
 	&:hover {
-		color: lighten($mainColor, 5%);
+		color: lighten($color_link, 5%);
 		text-decoration: underline;
 	}
 	&:active {
@@ -59,43 +57,43 @@ a{
 
 
 ::-moz-selection{  //firefox
-	background-color: $mainColor;
+	background-color: $color_main;
 	color: #fff;
 }
 ::selection { // css3
-	background-color: $mainColor;
+	background-color: $color_main;
 	color: #fff;
 }
 
 @import "inc/component";
 
-@import "all";
+// @import "all";
 
-// $type: "all";
-// @import 'mq/common';
+$type: "all";
+@import 'mq/common';
 
-// /*----------------------------------------------------
-// 	media query
-// ----------------------------------------------------*/
+/*----------------------------------------------------
+	media query
+----------------------------------------------------*/
 
-// /* smart phone
-// -------------------------------------------------- */
-// @media only screen and (max-width:#{$mqTabWidth - 1}) {
-//     $type: "sp";
-//     @import 'mq/common';
-// }
+/* smart phone
+-------------------------------------------------- */
+@media only screen and (max-width:#{$mq_tab_width - 1}) {
+    $type: "sp";
+    @import 'mq/common';
+}
 
-// /* tablet
-// -------------------------------------------------- */
-// @media only screen and (min-width:#{$mqTabWidth}) and (max-width:#{$mqPcWidth - 1}) {
-//     $type: "tab";
-//     @import 'mq/common';
-// }
+/* tablet
+-------------------------------------------------- */
+@media only screen and (min-width:#{$mq_tab_width}) and (max-width:#{$mq_pc_width - 1}) {
+    $type: "tab";
+    @import 'mq/common';
+}
 
-// /* pc
-// -------------------------------------------------- */
-// @media only screen and (min-width:#{$mqPcWidth}) {
-//     $type: "pc";
-//     @import 'mq/common';
-// }
+/* pc
+-------------------------------------------------- */
+@media only screen and (min-width:#{$mq_pc_width}) {
+    $type: "pc";
+    @import 'mq/common';
+}
 

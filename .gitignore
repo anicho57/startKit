@@ -17,3 +17,7 @@ templates_c
 *.sublime-project
 *.sublime-workspace
 #sftp-config.json
+
+# gulp
+node_modules
+.tmp

@@ -8,8 +8,7 @@ body{
 		position: relative;
 	}
 	@if $type == "sp" or $type == "tab"{
-		@include transition(left);
-		// @include transition(transform);
+		transition: left .2s;
 	}
 }
 // 判定checkbox
@@ -52,7 +51,7 @@ body{
 		height: 42px;
 		cursor: pointer;
 		text-align: center;
-		background-color: $mainColor;
+		background-color: $color_main;
 		i{
 			margin: 7px 0 0;
 			font-size: 28px;
@@ -67,7 +66,7 @@ body{
 .inner{
 	@if $type == "all"{
 		margin: 0 auto;
-		width: $innerWidth;
+		width: $inner_width;
 	}
 }
 

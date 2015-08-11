@@ -1,1 +1,1 @@
-browser-sync start --config bs-config.js
+browser-sync start --config ./_libs/bs-config.js

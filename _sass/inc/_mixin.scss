@@ -7,7 +7,7 @@
 // ===================================================================
 // フォントサイズ
 // ===================================================================
-$fontSizeList: 62%, 70%, 77%, 85%, 93%, 100%, 108%, 116%, 124%, 131%, 139%, 147%, 154%, 162%, 170%, 177%, 185%, 193%, 200%, 208%, 216%, 224%, 231%, 239%, 247%, 254%, 262%, 270%, 277%, 285%, 293%, 300%, 308%;
+$font_size_list: 62%, 70%, 77%, 85%, 93%, 100%, 108%, 116%, 124%, 131%, 139%, 147%, 154%, 162%, 170%, 177%, 185%, 193%, 200%, 208%, 216%, 224%, 231%, 239%, 247%, 254%, 262%, 270%, 277%, 285%, 293%, 300%, 308%;
 
 @function fz($size) {
 	@if $size < 8 {
@@ -16,7 +16,7 @@ $fontSizeList: 62%, 70%, 77%, 85%, 93%, 100%, 108%, 116%, 124%, 131%, 139%, 147%
 	@if $size > 40 {
 		$size: 40;
 	}
-	@return nth($fontSizeList, $size - 7);
+	@return nth($font_size_list, $size - 7);
 }
 
 @mixin text-border($color, $size:1px) {
@@ -24,12 +24,6 @@ $fontSizeList: 62%, 70%, 77%, 85%, 93%, 100%, 108%, 116%, 124%, 131%, 139%, 147%
 				 0 $size 0 $color,
 				(-$size) 0 0 $color,
 				 0 (-$size) 0 $color;
-}
-
-@mixin transition($propaty:all, $duration:.3s, $timing:ease-in-out){
-	@each $prefix in $set_prefix {
-		#{$prefix}transition: $propaty $duration $timing;
-	}
 }
 
 @function usuku($color,$p:10%) {
@@ -43,7 +37,6 @@ $fontSizeList: 62%, 70%, 77%, 85%, 93%, 100%, 108%, 116%, 124%, 131%, 139%, 147%
 // 簡易ロールオーバー
 %opacity {
 	opacity: $opacity_value;
-	-moz-opacity: $opacity_value;
 	filter: alpha(opacity=#{$opacity_value * 100});
 	-ms-filter: "alpha(opacity=#{$opacity_value * 100})";
 }
@@ -54,15 +47,6 @@ $fontSizeList: 62%, 70%, 77%, 85%, 93%, 100%, 108%, 116%, 124%, 131%, 139%, 147%
 	_visibility: hidden;
 }
 
-
-%anime{
-  @each $prefix in $set_prefix {
-    #{$prefix}transition: color .3s linear,
-                        background-color .3s linear,
-                        opacity .3s linear,
-                        border-color .3s linear;
-  }
-}
 
  // clearfix
 %clearfix,%cf {
@@ -109,5 +93,5 @@ $fontSizeList: 62%, 70%, 77%, 85%, 93%, 100%, 108%, 116%, 124%, 131%, 139%, 147%
 	cursor: pointer;
 }
 %mincho{
-	font-family: $minchoFont;
+	font-family: $font_mincho;
 }

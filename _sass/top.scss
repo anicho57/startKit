@@ -11,7 +11,7 @@
 
 
 $type: "all";
-@import 'mq/home';
+@import 'mq/top';
 
 /*----------------------------------------------------
 	media query
@@ -21,20 +21,20 @@ $type: "all";
 -------------------------------------------------- */
 @media only screen and (max-width:#{$mq_tab_width - 1}) {
     $type: "sp";
-    @import 'mq/home';
+    @import 'mq/top';
 }
 
 /* tablet
 -------------------------------------------------- */
 @media only screen and (min-width:#{$mq_tab_width}) and (max-width:#{$mq_pc_width - 1}) {
     $type: "tab";
-    @import 'mq/home';
+    @import 'mq/top';
 }
 
 /* pc
 -------------------------------------------------- */
 @media only screen and (min-width:#{$mq_pc_width}) {
     $type: "pc";
-    @import 'mq/home';
+    @import 'mq/top';
 }
 

@@ -39,8 +39,8 @@ class SiteSetting{
    * 文字列から最初のディレクトリ名（/で囲まれた名前）を取得
    * @return [string] 最初のディレクトリ名。トップ階層は'home'を返す
    */
-  function get_page_id(){
-    $path = $this->get_path();
+  function get_page_id($path = null){
+    if ( is_null($path)) $path = $this->get_path();
     $first_dir = 'top';
     if( preg_match('/[^\/]+/', $path, $m)){
       $first_dir = $m[0];

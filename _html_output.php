@@ -46,7 +46,7 @@ $fileList = getFileList($basePath);//file[] dir[] に格納
 
 foreach ($fileList as $filePath) {
     $fileInfo = pathinfo($filePath);
-    if( @$fileInfo['extension'] == "tpl" && !strstr($fileInfo['dirname'],'htparts') && $fileInfo['filename'] != "404" ){
+    if( @$fileInfo['extension'] == "tpl" && !strpos($fileInfo['dirname'],'htparts') && $fileInfo['filename'] != "404" ){
 
         // Page Id = first directory name
         $pid = $setting->get_page_id(str_replace($basePath,"",$filePath));

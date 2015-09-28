@@ -46,7 +46,7 @@ class SiteSetting{
       $first_dir = $m[0];
     }
     if( strpos($first_dir,'.')){
-      if ( in_array( $first_dir, array('','index.html')) ){
+      if ( in_array( $first_dir, array('index.html','index.tpl')) ){
         $first_dir = 'top';
       }else{
         $first_dir = 'sub';

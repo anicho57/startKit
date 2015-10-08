@@ -42,7 +42,7 @@ $smarty->assign("level", $setting->get_base_path());
 
 $basePath = ABSPATH;
 //指定パス以下のディレクトリ・ファイル取得
-$fileList = getFileList($basePath);//file[] dir[] に格納
+$fileList = getFileList($basePath,-1 ,array('node_modules'));//file[] dir[] に格納
 
 foreach ($fileList as $filePath) {
     $fileInfo = pathinfo($filePath);

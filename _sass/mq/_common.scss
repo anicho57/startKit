@@ -1,11 +1,11 @@
 body{
 	@if $type == "all"{
-		overflow: hidden;
 	}
 }
 #page{
 	@if $type == "all"{
 		position: relative;
+		overflow: hidden;
 	}
 	@if $type == "sp" or $type == "tab"{
 		transition: left .2s;

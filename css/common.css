@@ -650,9 +650,7 @@ input.btn01, input.btn02, input.btn03 { padding: .4em .8em .2em; }
 .btn03:hover { background-color: #d76679; }
 .btn03:active { position: relative; top: 3px; box-shadow: none; }
 
-body { overflow: hidden; }
-
-#page { position: relative; }
+#page { position: relative; overflow: hidden; }
 
 #is-sp-checkbox { display: none; }
 

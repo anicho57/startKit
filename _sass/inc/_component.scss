@@ -226,18 +226,18 @@ dl.sbs{
 	.placeholder{color: #999;}
 
 	// button
-	.btn01,.btn02,.btn03{
+	.btn-default,.btn-main,.btn-accent{
 		border-radius: 4px;
 	}
-	a.btn01,a.btn02,a.btn03{
+	a.btn-default,a.btn-main,a.btn-accent{
 		@extend %inlineBlock;
 		padding: .5em 1em .35em;
 		text-decoration: none !important;
 	}
-	input.btn01,input.btn02,input.btn03{
+	input.btn-default,input.btn-main,input.btn-accent{
 		padding: .4em .8em .2em;
 	}
-	.btn01:hover,.btn02:hover,.btn03:hover{
+	.btn-default:hover,.btn-main:hover,.btn-accent:hover{
 		@extend %pointer;
 	}
 	.btnL{
@@ -249,7 +249,7 @@ dl.sbs{
 		font-size: fz(11);
 	}
 
-	.btn01{
+	.btn-default{
 		border: solid 1px $color_line;
 		background-color: #f6f6f6;
 		box-shadow: 0 3px 0 0 koku($color_line);
@@ -265,11 +265,11 @@ dl.sbs{
 		}
 	}
 
-	.btn02{
+	.btn-main{
 		border: solid 1px $color_main;
 		background-color: $color_main;
 		box-shadow: 0 3px 0 0 koku($color_main);
-		// color: #fff !important;
+		color: #fff !important;
 		&:hover{
 			background-color: lighten($color_main, 10%);
 		}
@@ -280,7 +280,7 @@ dl.sbs{
 		}
 	}
 
-	.btn03{
+	.btn-accent{
 		border: solid 1px $color_accent;
 		background-color: $color_accent;
 		box-shadow: 0 3px 0 0 koku($color_accent);

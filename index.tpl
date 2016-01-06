@@ -2,9 +2,7 @@
 <html lang="ja">
 <head>
 
-	<meta charset="UTF-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=2" />
+{include file="_htparts/head-first.tpl"}
 
 	<title>site-title</title>
 
@@ -24,26 +22,26 @@
 	<link href="images/common/logo.png" rel="apple-touch-icon-precomposed" />
 
 </head>
-<body id="{$pid}-page">
+<body class="{$pid}-page">
 
 {include file="_htparts/header.tpl"}
 
-<div id="page-content">
+<div class="page-content">
 
-	<div id="content-main">
+	<div class="content-main">
 		<main role="main">
 
 		</main>
 	</div>
-	<!-- /#content-main -->
+	<!-- /.content-main -->
 
-	<div id="content-sub">
+	<div class="content-sub">
 
 	</div>
-	<!-- /#content-sub -->
+	<!-- /.content-sub -->
 
 </div>
-<!-- /#page-content -->
+<!-- /.page-content -->
 
 {include file="_htparts/footer.tpl"}
 

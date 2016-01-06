@@ -2,7 +2,7 @@ body{
 	@if $type == "all"{
 	}
 }
-#page{
+.page{
 	@if $type == "all"{
 		position: relative;
 		overflow: hidden;
@@ -17,10 +17,10 @@ body{
 		display: none;
 	}
 	@if $type == "sp" or $type == "tab"{
-		&:checked + #page{
+		&:checked + .page{
 			left: -240px;
 			// transform: translate(-240px,0);
-			#btn-sp-menu{
+			.btn-sp-menu{
 				&:after{
 					content: '';
 					position: absolute;
@@ -38,7 +38,7 @@ body{
 	}
 }
 // メニューボタン（ボタン）
-#btn-sp-menu{
+.btn-sp-menu{
 	@if $type == "all"{
 		display: none;
 	}
@@ -72,12 +72,12 @@ body{
 // ----------------------------------------------------
 // header
 // ----------------------------------------------------
-#page-head{
+.page-head{
 	@if $type == "all"{
 
 	}
 }
-#logo-main{
+.logo-main{
 	@if $type == "all"{
 
 	}
@@ -86,7 +86,7 @@ body{
 // ----------------------------------------------------
 // global navigation
 // ----------------------------------------------------
-#nav-main{
+.nav-main{
 	@if $type == "all"{
 
 	}
@@ -96,17 +96,17 @@ body{
 // ----------------------------------------------------
 // contents layout
 // ----------------------------------------------------
-#page-content {
+.page-content {
 	@if $type == "all"{
 
 	}
 }
-#content-main{
+.content-main{
 	@if $type == "all"{
 
 	}
 }
-#content-sub{
+.content-sub{
 	@if $type == "all"{
 
 	}
@@ -115,7 +115,7 @@ body{
 // ----------------------------------------------------
 // main block
 // ----------------------------------------------------
-#breadcrumbs{
+.breadcrumbs{
 	@if $type == "all"{
 
 	}
@@ -129,13 +129,13 @@ body{
 // ----------------------------------------------------
 // footer
 // ----------------------------------------------------
-#page-foot{
+.page-foot{
 	@if $type == "all"{
 
 	}
 }
 
-#copyright{
+.copyright{
 	@if $type == "all"{
 		font-size: fz(12);
 		small{}

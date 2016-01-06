@@ -2,31 +2,30 @@
 <html lang="ja">
 <head>
 
-	<meta charset="UTF-8" />
-	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
+{include file="_htparts/head-first.tpl"}
 
 	<title>404 Not Found</title>
 
 {include file="_htparts/head-read.tpl"}
 
 </head>
-<body id="{$pid}">
+<body class="{$pid}">
 
 {include file="_htparts/header.tpl"}
 
-<div id="page-content">
+<div class="page-content">
 
-	<div id="content-main">
+	<div class="content-main">
 		<main role="main">
 
 			<h1>404 Not Found</h1>
 
 		</main>
 	</div>
-	<!-- /#content-main -->
+	<!-- /.content-main -->
 
 </div>
-<!-- /#page-content -->
+<!-- /.page-content -->
 
 {include file="_htparts/footer.tpl"}
 

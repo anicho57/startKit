@@ -1,10 +1,10 @@
-<div id="page-foot">
+<div class="page-foot">
 	<footer role="contentinfo">
 
-		<p id="copyright"><small>&copy; 2014<script>now = new Date();if(now.getFullYear() != 2014)document.write( ' - ' + now.getFullYear() );</script> site-name</small></p>
+		<p class="copyright"><small>&copy; 2016<script>now = new Date();if(now.getFullYear() != 2016)document.write( ' - ' + now.getFullYear() );</script> site-name</small></p>
 
 	</footer>
 </div>
-<!-- /#footer -->
+<!-- /.page-foot -->
 </div>
-<!-- /#page -->
+<!-- /.page -->

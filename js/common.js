@@ -21,6 +21,9 @@
           label.find(":checked").closest(label).addClass("checked");
         });
 
+        var now = new Date();
+        var html = (2016 < now.getFullYear()) ? ' - ' + now.getFullYear() : '';
+        $('#js-now-year').html(html);
     });
 
 })(jQuery);

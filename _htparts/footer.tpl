@@ -1,7 +1,7 @@
 <div class="page-foot">
 	<footer role="contentinfo">
 
-		<p class="copyright"><small>&copy; 2016<script>now = new Date();if(now.getFullYear() != 2016)document.write( ' - ' + now.getFullYear() );</script> site-name</small></p>
+		<p class="copyright"><small>&copy; 2016<span id="js-now-year"></span> site-name</small></p>
 
 	</footer>
 </div>

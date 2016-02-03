@@ -49,7 +49,7 @@ $font_size_list: 62%, 70%, 77%, 85%, 93%, 100%, 108%, 116%, 124%, 131%, 139%, 14
 
 
  // clearfix
-%clearfix,%cf {
+.clearfix,%cf {
 	*zoom: 1;
 	&:after {
 		content: ".";

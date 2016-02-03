@@ -38,21 +38,6 @@ a[href$=".bmp"] img {
 	_height: $value;
 }
 
-// 余白調整用のクラス
-@if $use_spacing_classes {
-	@for $i from -4 through -1 {
-		.mt#{$i * 5} { margin-top: 5px * $i !important; }
-		.mb#{$i * 5} { margin-bottom: 5px * $i !important; }
-	}
-	@for $i from 0 through 20 {
-		.mt#{$i * 5} { margin-top: 5px * $i !important; }
-		.mb#{$i * 5} { margin-bottom: 5px * $i !important; }
-		.pt#{$i * 5} { padding-top: 5px * $i !important; }
-		.pb#{$i * 5} { padding-bottom: 5px * $i !important; }
-		.p#{$i * 5}  { padding: 5px * $i !important; }
-	}
-}
-
 // float: right
 .fr,
 .img-r {
@@ -119,12 +104,6 @@ sub{
 	@extend %cf;
 }
 
-@for $i from 10 through 32 {
-	.fz#{$i}{
-		font-size: #{$i}px !important;
-	}
-}
-
 ul{
 	&.disc{
 		li{
@@ -152,16 +131,56 @@ ol{
 	padding: 0 0 0 1.5em;
 }
 
-@if $use_box_width{
-	// width
-	@for $i from 4 through 50 {
-		.box#{$i * 10}{
-			width: #{$i * 10}px;
+// 余白調整用のクラス
+@if $use_spacing_classes {
+	.mt{
+		@for $i from -4 through 20 {
+			&#{$i * 5} { margin-top: 5px * $i !important; }
 		}
 	}
-	@for $i from 1 through 20 {
-		.w#{$i * 5}{
-			width: #{$i * 5%};
+	.mb{
+		@for $i from -4 through 20 {
+			&#{$i * 5} { margin-bottom: 5px * $i !important; }
+		}
+	}
+	.pt{
+		@for $i from -4 through 20 {
+			&#{$i * 5} { padding-top: 5px * $i !important; }
+		}
+	}
+	.pb{
+		@for $i from -4 through 20 {
+			&#{$i * 5} { padding-bottom: 5px * $i !important; }
+		}
+	}
+	.p{
+		@for $i from -4 through 20 {
+			&#{$i * 5}  { padding: 5px * $i !important; }
+		}
+	}
+	.fz{
+		@for $i from 10 through 32 {
+			&#{$i}{
+				font-size: #{$i}px !important;
+			}
+		}
+	}
+}
+
+@if $use_box_width{
+	// width
+	.box{
+		@for $i from 4 through 50 {
+			&#{$i * 10}{
+				width: #{$i * 10}px;
+			}
+		}
+	}
+	.w{
+		@for $i from 1 through 20 {
+			&#{$i * 5}{
+				width: #{$i * 5%};
+			}
 		}
 	}
 }
@@ -169,14 +188,13 @@ ol{
 dl.sbs{
 	overflow: hidden;
 	dt{ float: left;}
-	&.em3 dd{padding-left: 3.5em;}
-	&.em4 dd{padding-left: 4.5em;}
-	&.em5 dd{padding-left: 5.5em;}
-	&.em6 dd{padding-left: 6.5em;}
-	&.em7 dd{padding-left: 7.5em;}
-	&.em8 dd{padding-left: 8.5em;}
-	&.em9 dd{padding-left: 9.5em;}
-	&.em10 dd{padding-left: 10.5em;}
+	&.em{
+		@for $i from 3 through 10 {
+			&#{$i} dd{
+				padding-left: #{$i+0.5}em;
+			}
+		}
+	}
 }
 
 @if $use_extend_object{
@@ -232,7 +250,7 @@ dl.sbs{
 		border-radius: 4px;
 	}
 	a.btn-default,a.btn-main,a.btn-accent{
-		@extend %inlineBlock;
+		display: inline-block;
 		padding: .5em 1em .35em;
 		text-decoration: none !important;
 	}
@@ -242,11 +260,11 @@ dl.sbs{
 	.btn-default:hover,.btn-main:hover,.btn-accent:hover{
 		@extend %pointer;
 	}
-	.btnL{
+	.btn-l{
 		padding: .6em 3em .5em !important;
 		font-size: fz(14);
 	}
-	.btnS{
+	.btn-s{
 		padding: .2em .3em .1em !important;
 		font-size: fz(11);
 	}

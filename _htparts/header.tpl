@@ -1,7 +1,7 @@
 <input type="checkbox" id="is-sp-checkbox" />
 <div class="page">
-<div class="page-head">
-	<header>
+<header>
+<div class="page-header">
 
 		<div class="logo-main" role="banner">
 			{strip}{if $pid == "top"}<h1><img src="{$level}images/common/logo.png" alt="" /></h1>
@@ -17,6 +17,6 @@
 			</ul>
 		</nav>
 
-	</header>
 </div>
-<!-- /.page-head -->
+</header>
+<!-- /.page-header -->

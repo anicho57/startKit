@@ -48,20 +48,6 @@ $font_size_list: 62%, 70%, 77%, 85%, 93%, 100%, 108%, 116%, 124%, 131%, 139%, 14
 }
 
 
- // clearfix
-.clearfix,%cf {
-	*zoom: 1;
-	&:after {
-		content: ".";
-		visibility: hidden;
-		clear: both;
-		display: block;
-		height: 0;
-		line-height: 0;
-		font-size: 0;
-	}
-}
-
 // inline-block
 %inlineBlock,%ib {
 	display: inline-block;

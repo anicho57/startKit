@@ -38,6 +38,20 @@ a[href$=".bmp"] img {
 	_height: $value;
 }
 
+ // clearfix
+.clearfix,%cf {
+	*zoom: 1;
+	&:after {
+		content: ".";
+		visibility: hidden;
+		clear: both;
+		display: block;
+		height: 0;
+		line-height: 0;
+		font-size: 0;
+	}
+}
+
 // float: right
 .fr,
 .img-r {

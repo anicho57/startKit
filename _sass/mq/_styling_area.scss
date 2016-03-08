@@ -1,6 +1,6 @@
 
 h2{
-@if $type == "all"{
+	@if $type == "all"{
 		position: relative;
 		margin: 1em 0;
 		padding: .6em .5em .4em .8em;

@@ -89,7 +89,6 @@ body{
 }
 .logo-main{
 	@if $type == "all"{
-
 	}
 }
 
@@ -98,7 +97,6 @@ body{
 // ----------------------------------------------------
 .nav-main{
 	@if $type == "all"{
-
 	}
 }
 
@@ -147,8 +145,9 @@ body{
 
 .copyright{
 	@if $type == "all"{
-		font-size: fz(12);
-		small{}
+		small{
+			font-size: 1.2rem;
+		}
 	}
 }
 

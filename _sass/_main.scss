@@ -8,60 +8,55 @@
 // element style
 // ----------------------------------------------------
 html{
-	text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%;
+	    -ms-text-size-adjust: 100%;
+	        text-size-adjust: 100%;
 }
 body {
 	color: $color_font;
 	font-family: $base_font;
-	letter-spacing: .05em;
-	line-height: 1.4;
+	font-size: $base_font_size;
+	letter-spacing: $base_letter_spacing;
 }
 
 input,select,option,textarea{
 	font-family: $base_font;
 }
 
-
-// for IE6
-* html {
-	body,input,select,option,textarea {
-		font-family: $base_font_ie;
-	}
-}
-
-
 // リンク
 a , a *{
+	-webkit-transition-property: color, border-color, background-color, opacity;
 	transition-property: color, border-color, background-color, opacity;
-	transition-duration: .3s;
-	transition-timing-function: ease-in-out;
+	-webkit-transition-duration: .3s;
+	        transition-duration: .3s;
+	-webkit-transition-timing-function: ease-in-out;
+	        transition-timing-function: ease-in-out;
 }
 a{
 	$color_link: $color_main;
 	color: $color_link;
-	&:link {
-		color: $color_link;
-		text-decoration: none;
-	}
+	text-decoration: none;
 	&:visited {
-		color: lighten($color_link, 10%);
+		color: lighten($color_link, 5%);
 	}
 	&:hover {
-		color: lighten($color_link, 5%);
+		outline: 0;
+		color: darken($color_link, 5%);
 		text-decoration: underline;
 	}
 	&:active {
-		color: #d00;
+		outline: 0;
+		color: $color_accent;
 	}
 }
 
 
 ::-moz-selection{  //firefox
-	background-color: $color_main;
+	background-color: darken($color_main, 10%);
 	color: #fff;
 }
 ::selection { // css3
-	background-color: $color_main;
+	background-color: darken($color_main, 10%);
 	color: #fff;
 }
 

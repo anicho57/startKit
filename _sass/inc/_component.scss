@@ -2,11 +2,11 @@
 
 // box sizing
 @if $use_box_sizing {
-	* {
+	html {
 		box-sizing: border-box;
-		&:after,&:before{
-			box-sizing: border-box;
-		}
+	}
+	*, *:before, *:after {
+		box-sizing: inherit;
 	}
 }
 
@@ -14,14 +14,11 @@
 @if $img_max_widthg {
 	img {
 		max-width: 100%;
+		height: auto;
 	}
 }
 
-.imgHover img:hover {
-	@extend %opacity;
-}
-
-.zoomIn,
+.zoom-in,
 a[href$=".gif"] img,
 a[href$=".png"] img,
 a[href$=".jpg"] img,
@@ -30,25 +27,28 @@ a[href$=".bmp"] img {
 	cursor: zoom-in;
 }
 
-.hide{display: none;}
-
-// min-height
-@mixin min_height($value) {
-	min-height: $value;
-	_height: $value;
-}
+.hide, [hidden]{display: none;}
 
  // clearfix
 .clearfix,%cf {
-	*zoom: 1;
 	&:after {
-		content: ".";
-		visibility: hidden;
+		content: "";
 		clear: both;
+		display: table;
+	}
+}
+.row{
+	@extend %cf;
+}
+.d{
+	&-b{
 		display: block;
-		height: 0;
-		line-height: 0;
-		font-size: 0;
+	}
+	&-ib{
+		display: inline-block;
+	}
+	&-i{
+		display: inline;
 	}
 }
 
@@ -84,9 +84,12 @@ a[href$=".bmp"] img {
 .clr{ clear: both;}
 
 hr{
-	margin: 20px 0;
+	margin: 40px 0;
 	border: none;
 	border-top: 1px solid $color_line;
+}
+.color-font{
+	color: $color_font;
 }
 .color-main{
 	color: $color_main;
@@ -98,7 +101,7 @@ hr{
 	color: #d00;
 }
 
-strong,.fwb{
+.fwb, strong, b{
 	font-weight: bold;
 }
 em{
@@ -107,37 +110,33 @@ em{
 	font-style: normal;
 }
 sup{
-	font-size: .5em;
-	vertical-align: top;
+	position: relative;
+	top: -0.5em;
+	font-size: 75%;
+	line-height: 0;
+	vertical-align: baseline;
 }
 sub{
-	font-size: .5em;
-	vertical-align: bottom;
-}
-.row{
-	@extend %cf;
+	position: relative;
+	bottom: -0.25em;
+	font-size: 75%;
+	line-height: 0;
+	vertical-align: baseline;
 }
 
+
 ul{
+	list-style-type: none;
 	&.disc{
-		li{
-			position: relative;
-			padding: 0 0 0 1.5em;
-			&:before{
-				content: '';
-				position: absolute;
-				top: .3em;
-				left: .5em;
-				// margin-top: -3px;
-				width: 6px;
-				height: 6px;
-				border-radius: 50%;
-				background-color: $color_font;
-			}
-		}
+		list-style-type: disc;
+		padding: 0 0 0 1.5em;
 	}
 	&.circle{
 		list-style: circle;
+		padding: 0 0 0 1.5em;
+	}
+	&.square{
+		list-style: square;
 		padding: 0 0 0 1.5em;
 	}
 }
@@ -178,6 +177,12 @@ ol{
 				font-size: #{$i}px !important;
 			}
 		}
+		&-s{
+			font-size: 85%;
+		}
+		&-l{
+			font-size: 125%;
+		}
 	}
 }
 
@@ -203,7 +208,7 @@ dl.sbs{
 	overflow: hidden;
 	dt{ float: left;}
 	&.em{
-		@for $i from 3 through 10 {
+		@for $i from 3 through 12 {
 			&#{$i} dd{
 				padding-left: #{$i+0.5}em;
 			}
@@ -212,20 +217,8 @@ dl.sbs{
 }
 
 @if $use_extend_object{
-	a[href$=".pdf"],
-	a.pdf{
-		// padding-right: 24px;
-		// background: url("#{$img_path}common/icoPdf.gif") no-repeat right center;
-	}
-	a[target="_blank"],
-	a.blank{
-		// padding-right: 20px;
-		// background: url("#{$img_path}common/listBlank.gif") no-repeat right center;
-	}
-
 	// form element
 	textarea, input, select{
-		margin: 1px;
 		padding: 3px;
 		// appearance: none;
 	}
@@ -239,7 +232,7 @@ dl.sbs{
 	input[type="number"],
 	select,
 	textarea{
-		border: 1px solid #ddd;
+		border: 1px solid #ccc;
 		border-radius: 2px;
 		background-color: #fbfbfb;
 	}
@@ -250,12 +243,12 @@ dl.sbs{
 	input[type="number"]:focus,
 	select:focus,
 	textarea:focus{
-		border-color: #aaa;
+		border-color: #999;
 		background-color: #fefefe;
 	}
 
 	::-webkit-input-placeholder {color: #999;}
-	:-moz-placeholder {color: #999;}
+	::-moz-placeholder {color: #999;}
 	:-ms-input-placeholder {color: #999;}
 	.placeholder{color: #999;}
 
@@ -269,18 +262,17 @@ dl.sbs{
 		text-decoration: none !important;
 	}
 	input.btn-default,input.btn-main,input.btn-accent{
-		padding: .4em .8em .2em;
+		padding: .4em 1em .3em;
 	}
 	.btn-default:hover,.btn-main:hover,.btn-accent:hover{
 		@extend %pointer;
 	}
 	.btn-l{
 		padding: .6em 3em .5em !important;
-		font-size: fz(14);
+		font-size: 1.4rem;
 	}
 	.btn-s{
-		padding: .2em .3em .1em !important;
-		font-size: fz(11);
+		font-size: 1.1rem;
 	}
 
 	.btn-default{

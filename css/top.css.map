@@ -1,7 +1,7 @@
 {
 "version": 3,
-"mappings": "",
-"sources": [],
+"mappings": "AA0FA,uBASC,GARA,IAAK,GACJ,iBAAiB,EAAE,YAAY,EACvB,SAAS,EAAE,YAAY;EAEhC,EAAG,GACF,iBAAiB,EAAE,cAAc,EACzB,SAAS,EAAE,cAAc;AAInC,eASC,GARA,IAAK,GACJ,iBAAiB,EAAE,YAAY,EACvB,SAAS,EAAE,YAAY;EAEhC,EAAG,GACF,iBAAiB,EAAE,cAAc,EACzB,SAAS,EAAE,cAAc",
+"sources": ["../_sass/inc/_mixin.scss"],
 "names": [],
 "file": "top.css"
 }

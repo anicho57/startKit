@@ -17,7 +17,32 @@ body {
 	font-family: $base_font;
 	font-size: $base_font_size;
 	letter-spacing: $base_letter_spacing;
+	&.is-loading{
+		*,*:before,*:after{
+			-webkit-animation: none !important;
+			        animation: none !important;
+			-webkit-transition: none !important;
+			        transition: none !important;
+		}
+		&:after{
+			content: '';
+			position: fixed;
+			left: 50%;
+			top: 50%;
+			-webkit-transform: translate(-50%,-50%);
+			    -ms-transform: translate(-50%,-50%);
+			        transform: translate(-50%,-50%);
+			border: 1px solid $color_main;
+			border-top-width: 3px;
+			width: 36px;
+			height: 36px;
+			border-radius: 50%;
+			-webkit-animation: spin 1s linear infinite;
+			        animation: spin 1s linear infinite;
+		}
+	}
 }
+
 
 input,select,option,textarea{
 	font-family: $base_font;

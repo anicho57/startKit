@@ -84,9 +84,15 @@ textarea { resize: vertical; }
 
 input[type="submit"], button, .btn-default:hover, .btn-main:hover, .btn-accent:hover { cursor: pointer; }
 
+@-webkit-keyframes spin { from { -webkit-transform: rotate(0deg); transform: rotate(0deg); }
+  to { -webkit-transform: rotate(360deg); transform: rotate(360deg); } }
+@keyframes spin { from { -webkit-transform: rotate(0deg); transform: rotate(0deg); }
+  to { -webkit-transform: rotate(360deg); transform: rotate(360deg); } }
 html { -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; text-size-adjust: 100%; }
 
 body { color: #333; font-family: Helvetica-Light, "Helvetica Light", Helvetica, YuGothic, "Yu Gothic", "游ゴシック", "ヒラギノ角ゴ Pro", "Hiragino Kaku Gothic Pro", Meiryo, "メイリオ", "MS PGothic", "ＭＳ Ｐゴシック", sans-serif; font-size: 1.5rem; letter-spacing: 0.05em; }
+body.is-loading *, body.is-loading *:before, body.is-loading *:after { -webkit-animation: none !important; animation: none !important; -webkit-transition: none !important; transition: none !important; }
+body.is-loading:after { content: ''; position: fixed; left: 50%; top: 50%; -webkit-transform: translate(-50%, -50%); -ms-transform: translate(-50%, -50%); transform: translate(-50%, -50%); border: 1px solid #67c3b4; border-top-width: 3px; width: 36px; height: 36px; border-radius: 50%; -webkit-animation: spin 1s linear infinite; animation: spin 1s linear infinite; }
 
 input, select, option, textarea { font-family: Helvetica-Light, "Helvetica Light", Helvetica, YuGothic, "Yu Gothic", "游ゴシック", "ヒラギノ角ゴ Pro", "Hiragino Kaku Gothic Pro", Meiryo, "メイリオ", "MS PGothic", "ＭＳ Ｐゴシック", sans-serif; }
 

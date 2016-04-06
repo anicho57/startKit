@@ -1,6 +1,17 @@
 
 (function($) {
     $(function() {
+        var $window = $(window),
+        $body = $('body');
+
+        $body.addClass('is-loading');
+
+        $window.on('load', function() {
+            window.setTimeout(function() {
+                $body.removeClass('is-loading');
+            }, 0);
+        });
+
         $("a[href^=#]:not([href$=#])").on("click", function(e) {
            e.preventDefault();
            var speed = 800;

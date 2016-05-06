@@ -88,6 +88,24 @@ $font_size_list: 62%, 70%, 77%, 85%, 93%, 100%, 108%, 116%, 124%, 131%, 139%, 14
 	font-family: $font_mincho;
 }
 
+@-webkit-keyframes fadein{
+	0%{
+		opacity: 0;
+	}
+	100%{
+		opacity: 1;
+	}
+}
+
+@keyframes fadein{
+	0%{
+		opacity: 0;
+	}
+	100%{
+		opacity: 1;
+	}
+}
+
 @-webkit-keyframes spin{
 	from {
 		-webkit-transform: rotate(0deg);

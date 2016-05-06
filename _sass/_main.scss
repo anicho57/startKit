@@ -40,9 +40,15 @@ body {
 			-webkit-animation: spin 1s linear infinite;
 			        animation: spin 1s linear infinite;
 		}
+		.page{
+			visibility: hidden;
+		}
 	}
 }
-
+.page{
+	-webkit-animation: fadein 1s;
+	        animation: fadein 1s;
+}
 
 input,select,option,textarea{
 	font-family: $base_font;

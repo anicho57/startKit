@@ -19,11 +19,11 @@
 }
 
 .zoom-in,
-a[href$=".gif"] img,
-a[href$=".png"] img,
-a[href$=".jpg"] img,
-a[href$=".jpeg"] img,
-a[href$=".bmp"] img {
+[href$=".gif"] img,
+[href$=".png"] img,
+[href$=".jpg"] img,
+[href$=".jpeg"] img,
+[href$=".bmp"] img {
 	cursor: zoom-in;
 }
 
@@ -111,14 +111,14 @@ em{
 }
 sup{
 	position: relative;
-	top: -0.5em;
+	top: -.5em;
 	font-size: 75%;
 	line-height: 0;
 	vertical-align: baseline;
 }
 sub{
 	position: relative;
-	bottom: -0.25em;
+	bottom: -.25em;
 	font-size: 75%;
 	line-height: 0;
 	vertical-align: baseline;
@@ -204,13 +204,13 @@ ol{
 	}
 }
 
-dl.sbs{
+.sbs{
 	overflow: hidden;
 	dt{ float: left;}
 	&.em{
 		@for $i from 3 through 12 {
 			&#{$i} dd{
-				padding-left: #{$i+0.5}em;
+				padding-left: #{$i + .5}em;
 			}
 		}
 	}
@@ -222,25 +222,25 @@ dl.sbs{
 		padding: 3px;
 		// appearance: none;
 	}
-	input[type="submit"],button{
+	[type="submit"],button{
 		@extend %pointer;
 	}
-	input[type="text"],
-	input[type="password"],
-	input[type="email"],
-	input[type="url"],
-	input[type="number"],
+	[type="text"],
+	[type="password"],
+	[type="email"],
+	[type="url"],
+	[type="number"],
 	select,
 	textarea{
 		border: 1px solid #ccc;
 		border-radius: 2px;
 		background-color: #fbfbfb;
 	}
-	input[type="text"]:focus,
-	input[type="password"]:focus,
-	input[type="email"]:focus,
-	input[type="url"]:focus,
-	input[type="number"]:focus,
+	[type="text"]:focus,
+	[type="password"]:focus,
+	[type="email"]:focus,
+	[type="url"]:focus,
+	[type="number"]:focus,
 	select:focus,
 	textarea:focus{
 		border-color: #999;

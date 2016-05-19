@@ -27,39 +27,30 @@ $font_size_list: 62%, 70%, 77%, 85%, 93%, 100%, 108%, 116%, 124%, 131%, 139%, 14
 }
 @mixin clearfix() {
 	&:after{
-		content: '';
-		display: table;
+		content: "";
+		display: block;
 		clear: both;
 	}
 }
-@function usuku($color,$p:10%) {
-	@return desaturate(lighten($color, $p), $p+10) ;
+@function usuku($color, $p:10%) {
+	@return desaturate(lighten($color, $p), $p + 10);
 }
 
-@function koku($color,$p:10%) {
-	@return desaturate(darken($color, $p), $p) ;
+@function koku($color, $p:10%) {
+	@return desaturate(darken($color, $p), $p);
 }
 
 // 簡易ロールオーバー
 %opacity {
 	opacity: $opacity_value;
 	filter: alpha(opacity=#{$opacity_value * 100});
-	-ms-filter: "alpha(opacity=#{$opacity_value * 100})";
 }
 
 %limpidity{
-	filter: alpha(opacity=0);
+	filter: alpha(opacity = 0);
 	opacity: 0;
-	_visibility: hidden;
 }
 
-
-// inline-block
-%inlineBlock,%ib {
-	display: inline-block;
-	*display: inline;
-	*zoom: 1;
-}
 
 %rapbr{
 	white-space: pre-line;

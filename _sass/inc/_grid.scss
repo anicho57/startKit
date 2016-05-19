@@ -1,4 +1,4 @@
-$column : 16;
+$column: 16;
 $grid-margin-pc: 30px;
 $grid-margin-tab: 20px;
 $grid-margin-sp: 16px;
@@ -9,7 +9,7 @@ $grid-margin-sp: 16px;
 			margin-left: -($grid-margin-pc / 2);
 			margin-right: -($grid-margin-pc / 2);
 			&:after{
-				content: '';
+				content: "";
 				display: table;
 				clear: both;
 			}

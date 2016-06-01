@@ -58,7 +58,7 @@ define('ABSPATH', dirname(__FILE__) . '/' );
 define('DOCPATH', substr(ABSPATH, 0, -9) . '/' );
 require(DOCPATH . '_libs/SiteSetting.class.php');
 // Samrty
-require('D:\\xampp\libs\smarty-3.1.27\libs\Smarty.class.php');
+require('C:\\xampp\libs\smarty3\libs\Smarty.class.php');
 require('functions.php');
 
 $smarty = new Smarty;

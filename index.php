@@ -7,7 +7,7 @@ require(ABSPATH . '_libs/SiteSetting.class.php');
 use \SiteSetting;
 
 // Samrty
-require("D:\\xampp\libs\Smarty3\libs\Smarty.class.php");
+require("C:\\xampp\libs\Smarty3\libs\Smarty.class.php");
 use \Smarty;
 
 $smarty = new Smarty;

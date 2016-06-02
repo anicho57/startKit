@@ -1,13 +1,14 @@
 body{
 	@if $type == "all"{
+		overflow: hidden;
 	}
 }
 .page{
 	@if $type == "all"{
 		position: relative;
-		overflow: hidden;
 	}
 	@if $type == "sp" or $type == "tab"{
+		left: 0;
 		transition: left .2s;
 	}
 }
@@ -33,6 +34,8 @@ body{
 				}
 				i:before{
 					content: '\e601';
+					position: relative;
+					z-index: 101;
 				}
 			}
 		}

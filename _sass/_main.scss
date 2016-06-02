@@ -25,18 +25,18 @@ body {
 			        transition: none !important;
 		}
 		&:after{
+			$size: 48px;
 			content: '';
 			position: fixed;
 			left: 50%;
 			top: 50%;
-			-webkit-transform: translate(-50%,-50%);
-			    -ms-transform: translate(-50%,-50%);
-			        transform: translate(-50%,-50%);
-			border: 1px solid $color_main;
-			border-top-width: 3px;
-			width: 36px;
-			height: 36px;
+			border: 4px solid rgba($color_main, .1);
+			border-top-color: $color_main;
+			width: $size;
+			height: $size;
 			border-radius: 50%;
+			margin-top: -($size / 2);
+			margin-left: -($size / 2);
 			-webkit-animation: spin 1s linear infinite;
 			        animation: spin 1s linear infinite;
 		}

@@ -1,41 +1,60 @@
 
 (function($) {
-    $(function() {
-        var $window = $(window),
-        $body = $('body');
+  'use strict';
 
-        $body.addClass('is-loading');
+  $(function() {
+    $base.pageLoading('is-loading');
+    $base.pageTop();
+    $base.linkStyle();
+    // $base.labelStat();
+    // $base.cpYear('#js-now-year', 2016);
+  });
 
-        $window.on('load', function() {
-            window.setTimeout(function() {
-                $body.removeClass('is-loading');
-            }, 0);
-        });
+  var $window = $(window);
+  var $body = $('body');
 
-        $("a[href^=#]:not([href$=#])").on("click", function(e) {
-           e.preventDefault();
-           var speed = 800;
-           var href= $( this).attr( "href");
-           var target = $(href === "#top" || href === "" ? 'html' : href);
-           var position = target.offset().top;
-           $('body,html').animate({scrollTop:position}, speed, 'swing');
-        });
+  var $base = {
+    pageLoading : function(classname, delay) {
+      var d = delay || 0;
+      $body.addClass(classname);
+      $window.on('load', function() {
+          window.setTimeout(function() {
+              $body.removeClass(classname);
+          }, d);
+      });
+    },
 
-        $("a[href^='http://']:not([href*='" + location.hostname + "']),[href*='https://']:not([href*='" + location.hostname + "'])").attr('target', '_blank').addClass('blank');
-        $("a[href$='.pdf']").attr('target', '_blank').addClass('pdf');
-        $("a[href$='.jpg'],a[href$='.gif'],a[href$='.png']").addClass('thickbox');
+    pageTop : function() {
+      $("a[href^=#]:not([href$=#])").on("click", function(e) {
+         e.preventDefault();
+         var href= $( this).attr( "href");
+         var target = $(href === "#top" || href === "" ? 'html' : href);
+         var position = target.offset().top;
+         $('body,html').animate({scrollTop:position}, speed, 'swing');
+      });
+    },
 
-        var label = $('label');
-        label.find(":checked").closest("label").addClass("checked");
-        label.click(function() {
-          label.filter(".checked").removeClass("checked");
-          label.find(":checked").closest(label).addClass("checked");
-        });
+    linkStyle : function() {
+      $("a[href^='http://']:not([href*='" + location.hostname + "']),[href*='https://']:not([href*='" + location.hostname + "'])").attr('target', '_blank').addClass('blank');
+      $("a[href$='.pdf']").attr('target', '_blank').addClass('pdf');
+      $("a[href$='.jpg'],a[href$='.gif'],a[href$='.png']").addClass('thickbox');
+    },
 
-        var now = new Date();
-        var html = (2016 < now.getFullYear()) ? ' - ' + now.getFullYear() : '';
-        $('#js-now-year').html(html);
-    });
+    labelStat : function() {
+      var label = $('label');
+      label.find(":checked").closest("label").addClass("checked");
+      label.click(function() {
+        label.filter(".checked").removeClass("checked");
+        label.find(":checked").closest(label).addClass("checked");
+      });
+    },
+
+    cpYear : function( selector, fromYear ) {
+      var now = new Date();
+      var html = (fromYear < now.getFullYear()) ? ' - ' + now.getFullYear() : '';
+      $(selector).html(html);
+    }
+  };
 
 })(jQuery);
 

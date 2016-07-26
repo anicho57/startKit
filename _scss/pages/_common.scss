@@ -91,7 +91,7 @@ body{
 // ----------------------------------------------------
 .l-inner{
 	@if $type == "all"{
-		@extend %cf;
+		@include clearfix();
 		margin: 0 auto;
 		width: $inner_width;
 	}

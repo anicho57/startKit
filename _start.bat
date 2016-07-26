@@ -4,7 +4,7 @@ set /p lr="Start the LiveReload ? (y/n) : %lr%"
 set /p bs="Start the BrowserSync ?(y/n) : %bs%"
 set /p compass="Start the Compass ?(y/n) : %compass%"
 if "%lr%"=="y" (
-	start livereloadx -y http://127.0.0.1/ %~dp0
+	start livereloadx --exclude node_modules -y http://127.0.0.1/ %~dp0
 )
 if "%bs%"=="y" (
 	start browser-sync start --config ./_libs/bs-config.js

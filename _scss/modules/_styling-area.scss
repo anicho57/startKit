@@ -144,7 +144,7 @@ hr{
 }
 .in-image{
 	@if $type == "all"{
-		@extend %cf;
+		@include clearfix();
 		margin: 40px 0;
 		img{
 			padding: 4px;

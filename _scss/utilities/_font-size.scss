@@ -1,0 +1,17 @@
+$start: 10;
+$end: 32;
+$unit: rem;
+
+.fz{
+	@for $i from $start through $end {
+		&#{$i}{
+			font-size: #{$i}$unit;
+		}
+	}
+	&-s{
+		font-size: 85%;
+	}
+	&-l{
+		font-size: 125%;
+	}
+}

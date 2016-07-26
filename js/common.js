@@ -6,7 +6,7 @@
   var $Base = function (option) {
     this.option = $.extend({
       'pageloading': {
-        'run' : false,
+        'run' : true,
         'delay': 0,
         'classname': 'is-loading'
       },

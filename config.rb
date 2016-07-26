@@ -2,7 +2,7 @@ Encoding.default_external = "utf-8"
 
 http_path = "/"
 css_dir = "css"
-sass_dir = "_sass"
+sass_dir = "_scss"
 images_dir = "images"
 javascripts_dir = "js"
 

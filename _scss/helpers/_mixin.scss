@@ -1,0 +1,24 @@
+
+@mixin text-border($color, $size:1px) {
+	text-shadow: $size 0 0 $color,
+				 0 $size 0 $color,
+				(-$size) 0 0 $color,
+				 0 (-$size) 0 $color;
+}
+@mixin clearfix() {
+	&:after{
+		content: "";
+		display: block;
+		clear: both;
+	}
+}
+
+@mixin fade-ini($time: .4s){
+	transition: visibility $time, opacity $time;
+	visibility: hidden;
+	opacity: 0;
+	&:hover{
+		visibility: visible;
+		opacity: 1;
+	}
+}

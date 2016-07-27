@@ -1,5 +1,6 @@
 .styling-area{
-	h2{
+h2{
+	@if $type == "all"{
 		position: relative;
 		margin: 1em 0;
 		padding: .6em .5em .4em .8em;
@@ -18,7 +19,9 @@
 			background-color: $color_main;
 		}
 	}
-	h3{
+}
+h3{
+	@if $type == "all"{
 		position: relative;
 		overflow: hidden;
 		margin: 1em 0;
@@ -41,24 +44,33 @@
 			margin-left: -95%;
 		}
 	}
-	h4{
+}
+h4{
+	@if $type == "all"{
 		margin: 1em 0;
 		padding: .6em .5em .2em .8em;
 		border-bottom: 2px dashed #aaa;
 		font-size: fz(16);
 		font-weight: bold;
 	}
-	p,ul,ol,dl,table{
+}
+p,ul,ol,dl,table{
+	@if $type == "all"{
 		margin: 1em 0 1.5em;
 		font-size: fz(14);
 	}
-	ul,ol{
+}
+ul,ol{
+	@if $type == "all"{
 		padding: 0 0 0 1.8em;
 		li + li{
 			margin: .3em 0 0;
 		}
+
 	}
-	ul{
+}
+ul{
+	@if $type == "all"{
 		list-style: disc;
 		&.list-square{
 			list-style: none;
@@ -75,13 +87,19 @@
 				}
 			}
 		}
+
 	}
-	dl{
+}
+dl{
+	@if $type == "all"{
 		dt{
 			font-weight: bold;
 		}
+
 	}
-	table{
+}
+table{
+	@if $type == "all"{
 		th,td{
 			padding: .5em .8em .4em;
 			border: 1px solid #ccc;
@@ -102,21 +120,30 @@
 				font-size: 100%;
 			}
 		}
+
 	}
-	hr{
+}
+hr{
+	@if $type == "all"{
 		clear: both;
 		margin: 40px 0;
 		border: none;
 		border-top: 1px solid #ccc;
+
 	}
-	.box-frame{
+}
+.box-frame{
+	@if $type == "all"{
 		padding: 1em;
 		border: 3px double #ccc;
 		> * {
 			margin: 0;
 		}
+
 	}
-	.in-image{
+}
+.in-image{
+	@if $type == "all"{
 		@include clearfix();
 		margin: 40px 0;
 		img{
@@ -124,4 +151,5 @@
 			border: 1px solid #ccc;
 		}
 	}
+}
 }

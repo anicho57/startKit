@@ -1,88 +1,33 @@
 $column: 16;
-$grid-margin-pc: 30px;
-$grid-margin-tab: 20px;
-$grid-margin-sp: 16px;
-
+$grid-margin: 30px;
 .grid{
-	@if $type == "all"{
-		&-row{
-			margin-left: -($grid-margin-pc / 2);
-			margin-right: -($grid-margin-pc / 2);
-			&:after{
-				content: "";
-				display: table;
-				clear: both;
-			}
-			& + &{
-				margin-top: $grid-margin-pc;
-			}
+	&-row{
+		margin-left: -($grid-margin / 2);
+		margin-right: -($grid-margin / 2);
+		&:after{
+			content: "";
+			display: block;
+			clear: both;
 		}
-		@at-root{
-			%grid-base-pc{
-				box-sizing: border-box;
-				float: left;
-				padding: 0 ($grid-margin-pc / 2);
-				:first-child{
-					margin-top: 0;
-				}
-			}
+		& + &{
+			margin-top: $grid-margin;
 		}
-		@for $i from 1 through $column {
-			&-#{$i}{
-				@extend %grid-base-pc;
-				$width: percentage($i / $column);
-				width: $width;
+	}
+	@at-root{
+		%grid-base-pc{
+			box-sizing: border-box;
+			float: left;
+			padding: 0 ($grid-margin / 2);
+			:first-child{
+				margin-top: 0;
 			}
 		}
 	}
-	@if $type == "tab"{
-		&-row{
-			margin-left: -($grid-margin-tab / 2);
-			margin-right: -($grid-margin-tab / 2);
-			& + &{
-				margin-top: $grid-margin-tab;
-			}
-		}
-		@at-root{
-			%grid-base-tab{
-				padding: 0 ($grid-margin-tab / 2);
-			}
-		}
-		@for $i from 1 through $column {
-			&-#{$i}{
-				@extend %grid-base-tab;
-			}
-		}
-	}
-	@if $type == "sp"{
-		&-row{
-			margin-left: -($grid-margin-sp / 2);
-			margin-right: -($grid-margin-sp / 2);
-			& + &{
-				margin-top: $grid-margin-sp;
-			}
-		}
-		@at-root{
-			%grid-base-sp{
-				padding: 0 ($grid-margin-sp / 2);
-				&.sp-full{
-					width: auto;
-					float: none;
-					margin-top: $grid-margin-sp;
-					margin-bottom: $grid-margin-sp;
-					:last-child{
-						margin-bottom: 0;
-					}
-				}
-				&:last-child.sp-full{
-					margin-bottom: 0;
-				}
-			}
-		}
-		@for $i from 1 through $column {
-			&-#{$i}{
-				@extend %grid-base-sp;
-			}
+	@for $i from 1 through $column {
+		&-#{$i}{
+			@extend %grid-base-pc;
+			$width: percentage($i / $column);
+			width: $width;
 		}
 	}
 }

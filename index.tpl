@@ -43,11 +43,6 @@
 				<li>ダミーテキスト。ダミーテキスト。ダミーテキスト。ダミーテキスト。ダミーテキスト。ダミーテキスト。ダミーテキスト。ダミーテキスト。ダミーテキスト。</li>
 				<li>ダミーテキスト。ダミーテキスト。ダミーテキスト。ダミーテキスト。ダミーテキスト。ダミーテキスト。ダミーテキスト。ダミーテキスト。ダミーテキスト。</li>
 			</ol>
-			<input type="text" name="" />
-			<input type="password" name="" />
-			<input type="email" name="" />
-			<input type="url" name="" />
-			<input type="number" name="" />
 		</main>
 	</div>
 	<!-- /.content-main -->

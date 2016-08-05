@@ -11,11 +11,13 @@
 		</div>
 
 		<label class="btn-sp-menu" for="is-sp-checkbox"><i class="icon-menu"></i></label>
-		<nav class="nav-main" role="navigation">
-			<ul>
-				<li></li>
-			</ul>
-		</nav>
+		<div class="nav-main">
+			<nav role="navigation">
+				<ul class="nav-main__list">
+					<li></li>
+				</ul>
+			</nav>
+		</div>
 
 </div>
 </header>

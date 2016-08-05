@@ -16,7 +16,7 @@
 </header>
 <div id="content">
     <div class="container">
-        <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+<!--         <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <a class="collapsed btn-block" role="button" data-toggle="collapse" data-parent="#accordion" href="#pathsetting" aria-expanded="false" aria-controls="pathsetting">
@@ -35,7 +35,7 @@
                 </div>
             </div>
         </div>
-
+ -->
         <div class="panel panel-default">
             <div class="panel-body">
                 <p>
@@ -81,7 +81,7 @@ $listOption = array(
         ),
         'images' => array(
             'ignore' => $ignore,
-            'filter' => array('*.jpg','*.png','*.gif')
+            'filter' => array('*.jpg','*.png','*.gif','*.svg')
         ),
         'css' => array(
             'ignore' => $ignore,
@@ -93,7 +93,7 @@ $listOption = array(
         ),
         'others' => array(
             'ignore' => $ignore,
-            'filter' => array('*.eot','*.svg','*.ttf','*.woff')
+            'filter' => array('*.xls','*.doc','*.pdf','*.eot','*.ttf','*.woff')
         )
     );
 
@@ -106,8 +106,10 @@ $outpath = 'relative';
 if (isset($_GET['check'])):
 
     $htmlList = array();
+    $updateCount = array();
     foreach ($listOption as $key => $option) {
         $fileList = getFileList($basePath,-1 ,$option['ignore'],$option['filter']);
+        $updateCount[$key] = 0;
 
         foreach ($fileList as $filePath) {
             $fileInfo = pathinfo($filePath);
@@ -123,39 +125,47 @@ if (isset($_GET['check'])):
                     $smarty->assign("level", $setting->get_relative_path($hpFilePath));
 
                 $html = $smarty->fetch($filePath);
+                $smartyUpdateTime = filemtime($filePath);
+                foreach ($smarty->ext->_subTemplate->subTplInfo as $subTpl => $val) {
+                    $subTplTime = filemtime(preg_replace('/^file:/', $smarty->template_dir[0], $subTpl));
+                    $smartyUpdateTime = ($subTplTime > $smartyUpdateTime) ? $subTplTime : $smartyUpdateTime;
+                }
+
 
                 // $outPutPath = $fileInfo['dirname'].'/'.$fileInfo['filename'].'.html';
                 $outPutPath = ABSPATH .'dist/'. substr($hpFilePath,0,-3) . 'html';
 
                 $oldData = "";
-                if (file_exists("$outPutPath")){
-                    $fd = fopen ("$outPutPath", "r");
+                if (file_exists($outPutPath)){
+                    $fd = fopen ($outPutPath, "r");
                     while (!feof ($fd)) {
                            $oldData .= fgets($fd, 4096);
                     }
                     fclose ($fd);
                 }
-                $outputtxt = (file_exists($outPutPath)) ? date ("Y年n月j日 H:i:s.", filemtime($outPutPath)) : 'ファイルがありません';
+
+                $msgDist = (file_exists($outPutPath)) ? date ("Y年n月j日 H:i:s.", filemtime($outPutPath)) : 'ファイルがありません';
                 if($oldData != $html){
-                    $htmlList[$key][] = '<tr class="danger"><td>'.substr($hpFilePath,0,-3).'html</td><td>'.date ("Y年n月j日 H:i:s.", filemtime($filePath)).'</td><td>'.$outputtxt.'</td></tr>';
+                    $updateCount[$key]++;
+                    $htmlList[$key][] = '<tr class="danger"><td>'.substr($hpFilePath,0,-3).'html</td><td>'.date ("Y年n月j日 H:i:s.", $smartyUpdateTime).'</td><td>'.$msgDist.'</td></tr>';
                 }else{
-                    $htmlList[$key][] = '<tr><td>'.substr($hpFilePath,0,-3).'html</td><td>'.date ("Y年n月j日 H:i:s.", filemtime($filePath)).'</td><td>'.$outputtxt.'</td></tr>';
+                    $htmlList[$key][] = '<tr><td>'.substr($hpFilePath,0,-3).'html</td><td>'.date ("Y年n月j日 H:i:s.", $smartyUpdateTime).'</td><td>'.$msgDist.'</td></tr>';
                 }
             }else{
 
                 $outPutPath = ABSPATH .'dist/'. $hpFilePath;
 
                 $isNew = true;
-                if (file_exists($outPutPath)){
+                if (file_exists($outPutPath))
                     if (filemtime($filePath) <= filemtime($outPutPath))
                         $isNew = false;
-                }
 
-                $outputtxt = (file_exists($outPutPath)) ? date ("Y年n月j日 H:i:s.", filemtime($outPutPath)) : 'ファイルがありません';
+                $msgDist = (file_exists($outPutPath)) ? date ("Y年n月j日 H:i:s.", filemtime($outPutPath)) : 'ファイルがありません';
                 if ($isNew){
-                    $htmlList[$key][] = '<tr class="danger"><td>'.$hpFilePath.'</td><td>'.date ("Y年n月j日 H:i:s.", filemtime($filePath)).'</td><td>'.$outputtxt.'</td></tr>';
+                    $updateCount[$key]++;
+                    $htmlList[$key][] = '<tr class="danger"><td>'.$hpFilePath.'</td><td>'.date ("Y年n月j日 H:i:s.", filemtime($filePath)).'</td><td>'.$msgDist.'</td></tr>';
                 }else{
-                    $htmlList[$key][] = '<tr><td>'.$hpFilePath.'</td><td>'.date ("Y年n月j日 H:i:s.", filemtime($filePath)).'</td><td>'.$outputtxt.'</td></tr>';
+                    $htmlList[$key][] = '<tr><td>'.$hpFilePath.'</td><td>'.date ("Y年n月j日 H:i:s.", filemtime($filePath)).'</td><td>'.$msgDist.'</td></tr>';
                 }
 
             }
@@ -164,7 +174,7 @@ if (isset($_GET['check'])):
 ?>
     <ul class="nav nav-tabs" role="tablist">
         <?php foreach ($htmlList as $key => $arrayhtml) :?>
-            <li role="presentation"<?php echo ($key == 'html') ? 'class="active"':'';?>><a href="#<?php echo $key;?>" aria-controls="<?php echo $key;?>" role="tab" data-toggle="tab"><?php echo strtoupper($key);?> （<?php echo count($arrayhtml) ?>）</a></li>
+            <li role="presentation"<?php echo ($key == 'html') ? ' class="active"':'';?>><a href="#<?php echo $key;?>" aria-controls="<?php echo $key;?>" role="tab" data-toggle="tab"><?php echo strtoupper($key);?> （<?php echo count($arrayhtml) ?>）<?php echo ($updateCount[$key] > 0) ? '<span class="label label-pill label-danger" style="vertical-align: top;border-radius: 1em;">'.$updateCount[$key].'</span>' : '' ?></a></li>
         <?php endforeach;?>
     </ul>
 
@@ -173,11 +183,14 @@ if (isset($_GET['check'])):
             <div role="tabpanel" class="tab-pane<?php echo ($key == 'html') ? ' active':'';?>" id="<?php echo $key;?>">
                 <div class="panel-body row">
                     <table class="table table-striped table-bordered">
+                        <col>
+                        <col width="20%">
+                        <col width="20%">
                         <thead>
                             <tr>
-                                <td>ファイルパス</td>
-                                <td>更新日（元ファイル）</td>
-                                <td>更新日（出力ファイル）</td>
+                                <th>ファイルパス</th>
+                                <th>更新日（src内）</th>
+                                <th>更新日（dist内）</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -188,7 +201,6 @@ if (isset($_GET['check'])):
             </div>
         <?php  endforeach;?>
     </div>
-    <?php print_r("<p>".date("Y/m/d g:i s")."</p>\n"); ?>
 
 <?php endif;// output ?>
 
@@ -197,8 +209,10 @@ if (isset($_GET['check'])):
 if (isset($_GET['output'])):
 
     $htmlList = array();
+    $updateCount = array();
     foreach ($listOption as $key => $option) {
         $fileList = getFileList($basePath,-1 ,$option['ignore'],$option['filter']);
+        $updateCount[$key] = 0;
 
         foreach ($fileList as $filePath) {
             $fileInfo = pathinfo($filePath);
@@ -214,6 +228,11 @@ if (isset($_GET['output'])):
                     $smarty->assign("level", $setting->get_relative_path($hpFilePath));
 
                 $html = $smarty->fetch($filePath);
+                $smartyUpdateTime = filemtime($filePath);
+                foreach ($smarty->ext->_subTemplate->subTplInfo as $subTpl => $val) {
+                    $subTplTime = filemtime(preg_replace('/^file:/', $smarty->template_dir[0], $subTpl));
+                    $smartyUpdateTime = ($subTplTime > $smartyUpdateTime) ? $subTplTime : $smartyUpdateTime;
+                }
 
                 // $outPutPath = $fileInfo['dirname'].'/'.$fileInfo['filename'].'.html';
                 $outPutPath = ABSPATH .'dist/'. substr($hpFilePath,0,-3) . 'html';
@@ -230,8 +249,9 @@ if (isset($_GET['output'])):
                 if($oldData == $html){
                     $htmlList[$key][] = '<li class="list-group-item">'.substr($hpFilePath,0,-3).'html に変更はあません。 <a href="'.$link.'" target="_blank">Link</a></li>';
                 }else{
+                    $updateCount[$key]++;
                     buildPutFile($outPutPath,$html);
-                    touch($outPutPath,filemtime($filePath));
+                    touch($outPutPath,$smartyUpdateTime);
                     $htmlList[$key][] = '<li class="list-group-item text-danger">'.substr($hpFilePath,0,-3).'html を書き換えました。<a href="'.$link.'" target="_blank">link</a></li>';
                 }
             }else{
@@ -249,6 +269,7 @@ if (isset($_GET['output'])):
                 $link = 'dist/' . $hpFilePath;
                 $img = ($key == 'images') ? '<img src="dist/'.$hpFilePath.'" alt="" width="24" /> ' : '';
                 if ($isNew){
+                    $updateCount[$key]++;
                     copy($filePath,$outPutPath);
                     touch($outPutPath,filemtime($filePath));
                     $htmlList[$key][] = '<li class="list-group-item text-danger">'.$img.$hpFilePath.' を書き換えました。 <a href="'.$link.'" target="_blank">Link</a></li>';
@@ -262,7 +283,7 @@ if (isset($_GET['output'])):
 ?>
     <ul class="nav nav-tabs" role="tablist">
         <?php foreach ($htmlList as $key => $arrayhtml) :?>
-            <li role="presentation"<?php echo ($key == 'html') ? 'class="active"':'';?>><a href="#<?php echo $key;?>" aria-controls="<?php echo $key;?>" role="tab" data-toggle="tab"><?php echo strtoupper($key);?> （<?php echo count($arrayhtml) ?>）</a></li>
+            <li role="presentation"<?php echo ($key == 'html') ? ' class="active"':'';?>><a href="#<?php echo $key;?>" aria-controls="<?php echo $key;?>" role="tab" data-toggle="tab"><?php echo strtoupper($key);?> （<?php echo count($arrayhtml) ?>）<?php echo ($updateCount[$key] > 0) ? '<span class="label label-pill label-success" style="vertical-align: top;border-radius: 1em;">'.$updateCount[$key].'</span>' : '' ?></a></li>
         <?php endforeach;?>
     </ul>
 

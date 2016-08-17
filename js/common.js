@@ -27,6 +27,7 @@
         'selector' : '.height-group'
       }
     }, option);
+    $('html').removeClass('no-js');
     this.start();
   };
 

@@ -81,6 +81,11 @@ class SiteSetting{
     }
   }
 
+  function get_file_name(){
+    $fileinfo = pathinfo($this->get_smarty_path());
+    return $fileinfo['filename'];
+  }
+
   function get_html_path(){
     $path = $this->get_path();
     return (strstr($path,'.') == false) ? $path . 'index.html' :  $path;

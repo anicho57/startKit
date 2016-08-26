@@ -15,8 +15,8 @@ if "%compass%"=="y" (
 exit
 
 
-
 ::sass --style compact --watch _sass:css --cache-location .sass-cache --compass
+::node-sass -w _scss -o css --include-path _scss --source-map true --output-style compressed
 
 :: --style      CSSのフォーマット
 :: :expanded    {} で改行する形。よくみる CSS の記述形式はこれです。可読性たかし。

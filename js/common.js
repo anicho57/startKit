@@ -27,7 +27,6 @@
         'selector' : '.height-group'
       }
     }, option);
-    $('html').removeClass('no-js');
     this.start();
   };
 
@@ -36,6 +35,7 @@
 
     start: function() {
       var self = this;
+      $('html').removeClass('no-js');
       if (self.option.pageloading.run) self.pageLoading();
       if (self.option.scrollto.run) self.pageScroll();
       if (self.option.labelstat.run) self.labelStat();

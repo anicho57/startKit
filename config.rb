@@ -23,6 +23,14 @@ relative_assets = true
 
 # sass_options = { :debug_info => true }
 
+on_stylesheet_saved do |filename|
+    puts "    ----------------------- " + File.mtime(filename).strftime("%Y-%m-%d %H:%M:%S") + " --------"
+  # Growl.notify {
+  #    self.message = "#{File.basename(filename)} updated!"
+  #    self.icon = '/path/to/success.jpg'
+  #  }
+end
+
 # キャッシュバスター文字列をトリミング
 # on_sprite_saved do |filename|
 # 	if File.exists?(filename)

@@ -1,6 +1,10 @@
 <?php
 class SiteSetting{
 
+    function __construct(){
+      date_default_timezone_set('Asia/Tokyo');
+    }
+
   /**
    * インストールディレクトリの階層を取得
    * @return [string] インストールディレクトリの階層

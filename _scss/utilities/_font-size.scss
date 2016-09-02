@@ -8,10 +8,19 @@ $unit: rem;
 			font-size: #{$i}$unit;
 		}
 	}
-	&-s{
-		font-size: 85%;
+	&-hg{
+		font-size: 2.13em;
 	}
-	&-l{
-		font-size: 125%;
+	&-lg{
+		font-size: 1.6em;
+	}
+	&-md{
+		font-size: 1.2em;
+	}
+	&-sm{
+		font-size: .933em;
+	}
+	&-xs{
+		font-size: .8em;
 	}
 }

@@ -43,11 +43,15 @@
 				<li>ダミーテキスト。ダミーテキスト。ダミーテキスト。ダミーテキスト。ダミーテキスト。ダミーテキスト。ダミーテキスト。ダミーテキスト。ダミーテキスト。</li>
 				<li>ダミーテキスト。ダミーテキスト。ダミーテキスト。ダミーテキスト。ダミーテキスト。ダミーテキスト。ダミーテキスト。ダミーテキスト。ダミーテキスト。</li>
 			</ol>
+			<div class="row">
+				<div class="col-6 col-tab-4 col-sp-12">あああああ</div>
+				<div class="col-6 col-tab-8 col-sp-12">あああああああ</div>
+			</div>
 		</main>
 	</div>
 	<!-- /.content-main -->
 
-	<div class="content-sub">
+		<div class="content-sub">
 
 	</div>
 	<!-- /.content-sub -->

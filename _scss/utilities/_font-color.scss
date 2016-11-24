@@ -1,18 +1,18 @@
 
-.color{
+.fc{
 	&-font{
-		color: $color_font;
+		color: $color_font !important;
 	}
 	&-main{
-		color: $color_main;
+		color: $color_main !important;
 	}
 	&-sub{
-		color: $color_sub;
+		color: $color_sub !important;
 	}
 	&-accent{
-		color: $color_accent;
+		color: $color_accent !important;
 	}
 	&-attention{
-		color: #d00;
+		color: #d00 !important;
 	}
 }

@@ -1,12 +1,12 @@
 
 .fw{
 	&-thin{
-		font-weight: 100;
+		font-weight: 100 !important;
 	}
 	&-normal{
-		font-weight: normal;
+		font-weight: normal !important;
 	}
 	&-bold{
-		font-weight: bold;
+		font-weight: bold !important;
 	}
 }

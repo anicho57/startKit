@@ -1,12 +1,12 @@
 
 .d{
 	&-b{
-		display: block;
+		display: block !important;
 	}
 	&-ib{
-		display: inline-block;
+		display: inline-block !important;
 	}
 	&-i{
-		display: inline;
+		display: inline !important;
 	}
 }

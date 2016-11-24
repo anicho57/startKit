@@ -2,10 +2,10 @@ $start: 4;
 $end: 50;
 $step: 10;
 $unit: px;
-.box{
+.w{
 	@for $i from $start through $end {
 		&#{$i * $step}{
-			width: #{$i * $step}px;
+			width: #{$i * $step}px !important;
 		}
 	}
 }
@@ -14,8 +14,8 @@ $end: 20;
 $step: 5;
 .w{
 	@for $i from $start through $end {
-		&-#{$i * $step}p{
-			width: percentage($i * $step / 100);
+		&#{$i * $step}p{
+			width: percentage($i * $step / 100) !important;
 
 		}
 	}

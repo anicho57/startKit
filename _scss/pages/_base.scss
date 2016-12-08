@@ -8,6 +8,7 @@ body {
 	font-family: $base_font;
 	font-size: $base_font_size;
 	letter-spacing: $base_letter_spacing;
+	font-feature-settings: "palt";
 }
 
 input,select,option,textarea{

@@ -42,6 +42,7 @@
       if (self.option.linkstyle.run) self.linkStyle();
       if (self.option.setheight.run) self.setHeight();
       self.spMenuClass();
+      self.accordion();
     },
 
     pageLoading : function(classname, delay) {
@@ -101,6 +102,24 @@
       var button = $('#js-sp-menu');
       button.on('click', function() {
         $('#js-nav-sp,#js-sp-menu').toggleClass('is-open');
+      });
+    },
+
+    accordion : function() {
+      var button = $('.js-accordion > :first-child');
+      var body = button.next();
+      body.hide();
+      button.on('click', function(){
+        var it = this;
+        body = $(this).next();
+        body.stop().slideToggle(800, function(){
+          if (body.css('display') === 'block'){
+            $(it).addClass('is-open');
+          }else{
+            $(it).removeClass('is-open');
+          }
+          // $(window).trigger('scroll');
+        });
       });
     },
 

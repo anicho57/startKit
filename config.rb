@@ -3,7 +3,7 @@ Encoding.default_external = "utf-8"
 http_path = "/"
 css_dir = "css"
 sass_dir = "_scss"
-images_dir = "images"
+images_dir = "img"
 javascripts_dir = "js"
 
 sass_options = {:sourcemap => true,}
@@ -23,6 +23,19 @@ relative_assets = true
 
 # sass_options = { :debug_info => true }
 
+cache = true
+asset_cache_buster :none
+sass_options = { :debug_info => false }
+
+# キャッシュバスターをタイムスタンプからMD5ハッシュ(10文字)に変更する
+asset_cache_buster do |path, file|
+  if File.file?(file.path)
+    Digest::MD5.hexdigest(File.read(file.path))[0, 8]
+  else
+    $stderr.puts "WARNING: '#{File.basename(path)}' was not found (or cannot be read) in #{File.dirname(file.path)}"
+  end
+end
+
 on_stylesheet_saved do |filename|
     puts "    ----------------------- " + File.mtime(filename).strftime("%Y-%m-%d %H:%M:%S") + " --------"
   # Growl.notify {
@@ -30,6 +43,22 @@ on_stylesheet_saved do |filename|
   #    self.icon = '/path/to/success.jpg'
   #  }
 end
+
+# autoprefixer csso
+# gem install autoprefixer-rails
+# gem install csso-rails
+require 'autoprefixer-rails'
+require 'csso'
+on_stylesheet_saved do |file|
+  css = File.read(file)
+  File.open(file, 'w') do |io|
+    # io << AutoprefixerRails.compile(css, ['last 3 versions', 'ie 8', 'ios 6', 'android 2.3'])
+    io << AutoprefixerRails.process(css, browsers:['last 3 versions', 'ie 10', 'ios 6', 'android 4'])
+    # io << AutoprefixerRails.process(css)
+    # io << Csso.optimize( AutoprefixerRails.process(css, browsers:['last 1 version', 'ie 8', 'ios 6', 'android 2.3']) )
+  end
+end
+
 
 # キャッシュバスター文字列をトリミング
 # on_sprite_saved do |filename|

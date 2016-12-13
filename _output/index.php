@@ -50,7 +50,7 @@
 <?php
 
 error_reporting(E_ALL);
-ini_set('display_errors','On');
+ini_set('display_errors',0);
 date_default_timezone_set('Asia/Tokyo');
 set_time_limit(600);
 
@@ -59,6 +59,7 @@ define('DOCPATH', substr(ABSPATH, 0, -9) . '/' );
 require(DOCPATH . '_libs/SiteSetting.class.php');
 // Samrty
 require('C:\\xampp\libs\smarty3\libs\Smarty.class.php');
+// require("/usr/share/php/Smarty3/libs/Smarty.class.php");
 require('functions.php');
 
 $smarty = new Smarty;
@@ -76,8 +77,8 @@ $basePath = DOCPATH;
 $ignore = array('_htparts','.git','.tmp','node_modules','_output','_libs','_sass');
 $listOption = array(
         'html' => array(
-            'ignore' => array_merge($ignore,array('404.tpl')),
-            'filter' => array('*.tpl')
+            'ignore' => array_merge($ignore,array('404.html')),
+            'filter' => array('*.html')
         ),
         'images' => array(
             'ignore' => $ignore,
@@ -133,7 +134,7 @@ if (isset($_GET['check'])):
 
 
                 // $outPutPath = $fileInfo['dirname'].'/'.$fileInfo['filename'].'.html';
-                $outPutPath = ABSPATH .'dist/'. substr($hpFilePath,0,-3) . 'html';
+                $outPutPath = ABSPATH .'dist/'. $hpFilePath;
 
                 $oldData = "";
                 if (file_exists($outPutPath)){
@@ -147,9 +148,9 @@ if (isset($_GET['check'])):
                 $msgDist = (file_exists($outPutPath)) ? date ("Y年n月j日 H:i:s.", filemtime($outPutPath)) : 'ファイルがありません';
                 if($oldData != $html){
                     $updateCount[$key]++;
-                    $htmlList[$key][] = '<tr class="danger"><td>'.substr($hpFilePath,0,-3).'html</td><td>'.date ("Y年n月j日 H:i:s.", $smartyUpdateTime).'</td><td>'.$msgDist.'</td></tr>';
+                    $htmlList[$key][] = '<tr class="danger"><td>'.$hpFilePath.'</td><td>'.date ("Y年n月j日 H:i:s.", $smartyUpdateTime).'</td><td>'.$msgDist.'</td></tr>';
                 }else{
-                    $htmlList[$key][] = '<tr><td>'.substr($hpFilePath,0,-3).'html</td><td>'.date ("Y年n月j日 H:i:s.", $smartyUpdateTime).'</td><td>'.$msgDist.'</td></tr>';
+                    $htmlList[$key][] = '<tr><td>'.$hpFilePath.'</td><td>'.date ("Y年n月j日 H:i:s.", $smartyUpdateTime).'</td><td>'.$msgDist.'</td></tr>';
                 }
             }else{
 
@@ -235,7 +236,7 @@ if (isset($_GET['output'])):
                 }
 
                 // $outPutPath = $fileInfo['dirname'].'/'.$fileInfo['filename'].'.html';
-                $outPutPath = ABSPATH .'dist/'. substr($hpFilePath,0,-3) . 'html';
+                $outPutPath = ABSPATH .'dist/'. $hpFilePath;
 
                 $oldData = "";
                 if (file_exists("$outPutPath")){
@@ -245,14 +246,14 @@ if (isset($_GET['output'])):
                     }
                     fclose ($fd);
                 }
-                $link = 'dist/' . substr($hpFilePath,0,-3) . 'html';
+                $link = 'dist/' . $hpFilePath;
                 if($oldData == $html){
-                    $htmlList[$key][] = '<li class="list-group-item">'.substr($hpFilePath,0,-3).'html に変更はあません。 <a href="'.$link.'" target="_blank">Link</a></li>';
+                    $htmlList[$key][] = '<li class="list-group-item">'.$hpFilePath.' に変更はあません。 <a href="'.$link.'" target="_blank">Link</a></li>';
                 }else{
                     $updateCount[$key]++;
                     buildPutFile($outPutPath,$html);
                     touch($outPutPath,$smartyUpdateTime);
-                    $htmlList[$key][] = '<li class="list-group-item text-danger">'.substr($hpFilePath,0,-3).'html を書き換えました。<a href="'.$link.'" target="_blank">link</a></li>';
+                    $htmlList[$key][] = '<li class="list-group-item text-danger">'.$hpFilePath.' を書き換えました。<a href="'.$link.'" target="_blank">link</a></li>';
                 }
             }else{
 

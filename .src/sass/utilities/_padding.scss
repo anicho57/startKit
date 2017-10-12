@@ -1,19 +1,81 @@
-$start: 0;
-$end: 20;
-$step: 5;
-$unit: px;
-.pt{
-	@for $i from $start through $end {
-		&#{$i * $step} { padding-top: #{$step * $i}$unit !important; }
-	}
-}
-.pb{
-	@for $i from $start through $end {
-		&#{$i * $step} { padding-bottom: #{$step * $i}$unit !important; }
-	}
-}
+
+$size_all: (
+	xl:120px,
+	lg:80px,
+	md:48px,
+	sm:24px,
+	xs:.8em
+);
+$size_tab: (
+	xl:80px,
+	lg:48px,
+	md:32px,
+	sm:16px,
+	xs:.8em
+);
+$size_sp: (
+	xl:48px,
+	lg:32px,
+	md:24px,
+	sm:16px,
+	xs:.6em
+);
 .p{
-	@for $i from $start through $end {
-		&#{$i * $step} { padding: #{$step * $i}$unit !important; }
+	@if $type == "all"{
+		@each $name, $size in $size_all {
+			&-#{$name}{
+				padding: $size;
+			}
+			&t-#{$name}{
+				padding-top: $size;
+			}
+			&b-#{$name}{
+				padding-bottom: $size;
+			}
+			&l-#{$name}{
+				padding-left: $size;
+			}
+			&r-#{$name}{
+				padding-right: $size;
+			}
+		}
+	}
+	@if $type == "tab"{
+		@each $name, $size in $size_tab {
+			&-#{$name}{
+				padding: $size;
+			}
+			&t-#{$name}{
+				padding-top: $size;
+			}
+			&b-#{$name}{
+				padding-bottom: $size;
+			}
+			&l-#{$name}{
+				padding-left: $size;
+			}
+			&r-#{$name}{
+				padding-right: $size;
+			}
+		}
+	}
+	@if $type == "sp"{
+		@each $name, $size in $size_sp {
+			&-#{$name}{
+				padding: $size;
+			}
+			&t-#{$name}{
+				padding-top: $size;
+			}
+			&b-#{$name}{
+				padding-bottom: $size;
+			}
+			&l-#{$name}{
+				padding-left: $size;
+			}
+			&r-#{$name}{
+				padding-right: $size;
+			}
+		}
 	}
 }

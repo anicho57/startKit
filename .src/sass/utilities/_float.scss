@@ -1,6 +1,8 @@
 
-.f{
-	&-l{ float: left !important;}
-	&-r{ float: right !important;}
+.fl{
+	@if $type == "all"{
+		&-l{ float: left !important;}
+		&-r{ float: right !important;}
+		&-c{ clear: both;}
+	}
 }
-.clear{ clear: both;}

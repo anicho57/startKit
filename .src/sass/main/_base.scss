@@ -7,6 +7,7 @@ body {
 	color: $color_font;
 	font-family: $base_font;
 	font-size: $base_font_size;
+	font-weight: 500;
 	letter-spacing: $base_letter_spacing;
 	font-feature-settings: "palt";
 }
@@ -25,9 +26,9 @@ a{
 	$color_link: $color_main;
 	color: $color_link;
 	text-decoration: none;
-	&:visited {
-		color: lighten($color_link, 5%);
-	}
+	// &:visited {
+	// 	color: lighten($color_link, 5%);
+	// }
 	&:hover {
 		outline: 0;
 		color: darken($color_link, 5%);

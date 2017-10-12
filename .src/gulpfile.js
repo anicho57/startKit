@@ -17,7 +17,12 @@ gulp.task('serve', function(){
   browserSync.init({
         open: false,
         reloadDelay: 0,
-        proxy: '127.0.0.1'
+        proxy: '127.0.0.1',
+        ghostMode: {
+            clicks: false,
+            forms: false,
+            scroll: false
+        }
   });
 });
 gulp.task('src-reload', function(){
@@ -87,7 +92,7 @@ gulp.task('sass', function(){
         // :compact     セレクタと属性を 1 行にまとめて出力。可読性低め。
         // :compressed  圧縮して出力（全ての改行・コメントをトルツメ）。可読性は投げ捨て。
         // .pipe(sass({outputStyle: 'compact'}))
-        .pipe(sass({outputStyle: 'compact'}).on('error', function(err) {
+        .pipe(sass({outputStyle: 'compressed'}).on('error', function(err) {
             console.error(err.message);
             browserSync.notify(err.message.replace(/\r\n/g, "<br>").replace(/(\n|\r)/g, "<br>"), 6000); // Display error in the browser
             this.emit('end'); // Prevent gulp from catching the error and exiting the watch process
@@ -127,6 +132,24 @@ gulp.task('jshint', function(){
         .pipe(changed( js_src ))
         .pipe(jshint())
         .pipe(jshint.reporter('jshint-stylish'));
+});
+
+// js縮小チェック
+var js_src = [
+    path.dist + 'js/top.js',
+    // path.dist + 'js/jquery.photoswipe.min.js',
+    // path.dist + 'js/common.js'
+];
+var js_dist = path.dist + 'js/';
+var closureCompiler = require(path.module + 'gulp-closurecompiler');
+gulp.task('jscomiler', function(){
+    return gulp.src(js_src)
+        // .pipe(changed( js_src ))
+        .pipe(closureCompiler({
+          // fileName: 'script.min.js'
+          fileName: 'top.min.js'
+        }))
+        .pipe(gulp.dest(js_dist));
 });
 
 // 画像減色と軽量化

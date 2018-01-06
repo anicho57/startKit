@@ -10,3 +10,20 @@ $mq_tab_width: 640px;
 
 $padding_tab: 16px;
 $padding_sp: 8px;
+
+
+$space_base_size: (
+	all: 8px,
+	tab: 6px,
+	sp : 4px
+);
+$space_size_ratio: (
+	xxl: 20,
+	xl:  15,
+	lg:  10,
+	md:  6,
+	sm:  2,
+	xs:  1,
+	xxs: .5
+);
+

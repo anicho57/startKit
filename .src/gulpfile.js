@@ -47,7 +47,7 @@ var changed = require(path.module + 'gulp-changed');
 var cache = require(path.module + 'gulp-cached');
 var sassPartialsImported = require(path.module + 'gulp-sass-partials-imported');
 // sassで*読み込みできるはず・・・
-var globSass = require(path.module + 'gulp-sass-glob-import');
+var globSass = require(path.module + 'gulp-sass-glob');
 
 var gulpif = require(path.module + 'gulp-if');
 
@@ -61,7 +61,6 @@ var plumber = require(path.module + 'gulp-plumber');
 var sass_src = path.src + 'sass/**/*.scss';
 var sass_dist = path.dist + 'css/';
 var sass = require(path.module + 'gulp-sass');
-var sassInheritance = require(path.module + 'gulp-sass-multi-inheritance');
 var sourcemaps = require(path.module + 'gulp-sourcemaps');
 var postcss = require(path.module + 'gulp-postcss');
 var cssnext = require(path.module + 'postcss-cssnext');
@@ -74,11 +73,7 @@ gulp.task('sass', function(){
       })
     ];
     return gulp.src(sass_src)
-        // キャッシュその１
-        // .pipe(gulpif(global.isWatching, cache('sass')))
-        // .pipe(sassInheritance({dir: path.src + 'sass/'}))
 
-        // キャッシュその２
         .pipe(cache('sass'))
         .pipe(sassPartialsImported(path.src + 'sass/'))
 
@@ -92,7 +87,7 @@ gulp.task('sass', function(){
         // :compact     セレクタと属性を 1 行にまとめて出力。可読性低め。
         // :compressed  圧縮して出力（全ての改行・コメントをトルツメ）。可読性は投げ捨て。
         // .pipe(sass({outputStyle: 'compact'}))
-        .pipe(sass({outputStyle: 'compressed'}).on('error', function(err) {
+        .pipe(sass({outputStyle: 'expanded'}).on('error', function(err) {
             console.error(err.message);
             browserSync.notify(err.message.replace(/\r\n/g, "<br>").replace(/(\n|\r)/g, "<br>"), 6000); // Display error in the browser
             this.emit('end'); // Prevent gulp from catching the error and exiting the watch process

@@ -22,7 +22,6 @@
 	@if $type == "all"{
 		&-default{
 			@extend %button;
-			border: 1px solid $color_line;
 			background-color: #f6f6f6;
 			color: $color_font !important;
 			text-align: center;

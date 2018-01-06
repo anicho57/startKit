@@ -38,6 +38,7 @@ ul{
 }
 ol{
 	@if $type == "all"{
+		list-style: decimal;
 		padding: 0 0 0 1.5em;
 	}
 }

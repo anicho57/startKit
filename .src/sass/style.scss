@@ -15,7 +15,8 @@
 // @import "initialize/reset_html5_doctor";
 // @import "initialize/normalize";
 // @import "initialize/sanitize";
-@import "initialize/sanitize_v3";
+// @import "initialize/sanitize_v3";
+@import "initialize/shitaji";
 
 
 // ----------------------------------
@@ -34,13 +35,15 @@
 @import "main/base";
 
 @import "main/mq";
-// @import 'pages/common';
+// @import 'pages/**';
+
 
 
 
 // ----------------------------------
 // Utility
 // ----------------------------------
+@import "utilities/animation";
 @import "utilities/keyframes/fadein";
 @import "utilities/keyframes/spin";
 // @import "utilities/keyframes/updown";
@@ -60,3 +63,4 @@
 // Print
 // ----------------------------------
 // @import "modules/print";
+

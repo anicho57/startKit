@@ -76,3 +76,24 @@ $grid_margin_sp: 16px;
 		}
 	}
 }
+
+
+.fx-row{
+	@if $type == "all"{
+		display: flex;
+		flex-wrap: wrap;
+		margin-left: -($grid_margin_pc / 2);
+		margin-right: -($grid_margin_pc / 2);
+		> *{
+			float: none;
+		}
+	}
+	@if $type == "tab"{
+		margin-left: -($grid_margin_tab / 2);
+		margin-right: -($grid_margin_tab / 2);
+	}
+	@if $type == "sp"{
+		margin-left: -($grid_margin_sp / 2);
+		margin-right: -($grid_margin_sp / 2);
+	}
+}
